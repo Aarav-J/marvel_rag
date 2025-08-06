@@ -1,5 +1,4 @@
-Emperor Doom
--------------------------------------------------
+## Emperor Doom
 
 
 
@@ -19,8 +18,7 @@ Emperor Doom
 
 Infamous Iron ManNicknames:Doc, Doc Doom, Doctor Iron Doom, Doomie, Doom the Destroyer, President Metal Man, Superior Sorcerer Supreme, The Damned, The Great Destroyer, The Master, Vicky BoyImpersonations:Daredevil "Matthew Murdock (Earth-616)"), Human Torch "Jonathan Storm (Earth-616)"), Mister Fantastic "Reed Richards (Earth-616)"), Norman McArthur "Norman McArthur (Earth-616)")Other Aliases:All-Father, Baron of Iron, Beast of the Balkans, Destroyer of Worlds, Doctor of all dictators, God, Hans, King of Magic, The New Apprentice, Vincent Vaughn, Victor the First, Santa Doom
 
-Affiliation and Relationships
------------------------------
+## Affiliation and Relationships
 
 ### Affiliation
 
@@ -78,8 +76,7 @@ Formerly* Divinity_(Earth-616) "Divinity (Heroes Reborn) (Earth-616)")
 
 Single
 
-Physical Characteristics
-------------------------------------------------
+## Physical Characteristics
 
 ### Gender
 
@@ -110,8 +107,7 @@ Brown (formerly)
 
 Burn scars on his face
 
-Origin and Living Status
-------------------------
+## Origin and Living Status
 
 ### Origin
 
@@ -137,8 +133,7 @@ A Romani camp outside of Hassenstadt, Latveria
 2. Disintegrated by a Power Cosmic-empowered Tony Stark "Anthony Stark (Earth-616)") (revived by Tony Stark)
 3. Killed by the Progenitor_(Multiverse) "Progenitor (Celestial) (Multiverse)") (revived by the Progenitor)
 
-Personal Information
---------------------
+## Personal Information
 
 ### Identity
 
@@ -161,8 +156,7 @@ Latverian
  Undisclosed base 
 FormerlyDoom Island, Library of Worlds; Castle Doom "Castle Doom (Doomstadt)"), Doomstadt, Latveria; Latverian Embassy "Latverian Embassy (New York)"), Manhattan, New York City, New York "New York (State)"), United States of America; The Council, Doctor Doom's Castle (Upstate New York) "Castle Doom (Upstate New York)"), Doomstadt, Battleworld "Battleworld (Latverion)"), Earth-15513
 
-Creators and Appearances
-------------------------
+## Creators and Appearances
 
 ### Creators
 
@@ -193,59 +187,7 @@ Although Doom wishes to bring order and betterment to humanity, he intends to en
 
 In recent times, Doctor Doom proved a key player in stopping a worldwide vampire invasion and helped an incapacitated Doctor Strange "Stephen Strange (Earth-616)") dispel the Darkforce enveloping the Earth in temporary exchange for the mantle of Sorcerer Supreme. However, Doom refused to give up the mantle following Earth's liberation, seeing that he had much more work to do before he believed the world to be safe in his own eyes. Declaring himself **Emperor Doom**, he forcibly unified the planet as "United Latveria," promising global peace and prosperity while mysteriously controlling the world's leaders. 
 
-Contents
---------
-
-* 1 History
-	+ 1.1 Early Years
-	+ 1.2 Becoming Doctor Doom
-	+ 1.3 The Fantastic Four
-	+ 1.4 Camelot
-	+ 1.5 An Heir to the Throne
-	+ 1.6 Battleworld (Beyonder))
-	+ 1.7 Emperor Doom
-	+ 1.8 Freeing his Mother
-	+ 1.9 Counter-Earth
-	+ 1.10 Valeria
-	+ 1.11 Hell & Back
-	+ 1.12 Civil War
-	+ 1.13 Atlantean Refugees
-	+ 1.14 Doctor Doom Arrested!
-	+ 1.15 Fantastic Force
-	+ 1.16 The Cabal
-	+ 1.17 Marquis of Death
-	+ 1.18 Asgardians in Latveria
-	+ 1.19 The Doomwar
-	+ 1.20 Intelligencia
-	+ 1.21 Children's Crusade
-	+ 1.22 To the Future Foundation
-	+ 1.23 Return
-	+ 1.24 Incursion in Latveria
-	+ 1.25 AXIS
-	+ 1.26 Time Runs Out
-	+ 1.27 Secret Wars
-	+ 1.28 Infamous Iron Man
-	+ 1.29 The Return of Doom
-	+ 1.30 Framed and Conquest of Symkaria
-	+ 1.31 The Last Annihilation
-	+ 1.32 Reckoning War
-	+ 1.33 All-New Sorcerer Supreme
-* 2 Attributes
-	+ 2.1 Powers
-	+ 2.2 Abilities
-	+ 2.3 Weaknesses
-* 3 Paraphernalia
-	+ 3.1 Equipment
-	+ 3.2 Weapons
-	+ 3.3 Transportation
-* 4 Notes
-* 5 Trivia
-* 6 See Also
-* 7 Links and References
-	+ 7.1 References
-
-History
--------
+## History
 
 *This is an abridged version of Victor von Doom's history. For a complete history see **Victor von Doom's Expanded History/Expanded_History "Victor von Doom (Earth-616)/Expanded History")***
 
@@ -535,8 +477,7 @@ Immediately after the world returned to normal, Doom retreated and hid within La
 
 Within a single day, every single world leader mysteriously and allegedly willingly swore fealty to Emperor Doom. All of the world's nations became United Latveria, though he allowed the governments to remain, so long as they answered to him. He promised to the world two things: the first was to end all war and the second was to provide both elite health care and education for all people. By killing Baron Zemo "Helmut Zemo (Earth-616)") and replacing him with a Doombot, he turned the infamous terrorist organization Hydra "Hydra (Earth-616)") into a force of good. As the heroes, including the Fantastic Four and the Avengers, were skeptical about all of Doom's changes, they revealed Doom's trick to Hydra but inadvertently caused Hydra to revert back to their villainous ways, which Doom used to gain public support. Emperor Doom also claimed his dinosaur counterpart "Victor von Doom (Earth-TRN1101)") as his steed.
 
-Attributes
-----------
+## Attributes
 
 *Power Grid*
 
@@ -615,8 +556,7 @@ Former Weaknesses* **Deal with Mephisto:** Doom made a deal with the demon Mephi
 * **Pandora's Box Will:** After absorbing the souls of Pandora's Box, which were the incarnation of the Box itself, the souls gradually gave Doom an insatiable hunger to destroy. In order to suppress this hunger and better control his new destructive powers, Doom decided to create Pandora's Armor, made from the Arcane Artifacts, fragments of the Box itself.
 * **Pandora's Chosen:** Interfering with fate itself by taking the powers of Pandora's Box, Doom fatally became vulnerable to the existence of Pandora's Chosen: Hope, the very embodiment of Hope within the box and the one who was always destined to "close" Pandora's Box, through the eternal cycle of time and fate. 
 
-Paraphernalia
--------------
+## Paraphernalia
 
 ### Equipment
 
@@ -712,8 +652,7 @@ Former Transportation* Flying Fortress "Flying Fortress (Doctor Doom)")
 * Aerosub
 * Silver Surfer's surfboard.
 
-Notes
------
+## Notes
 
 * In Latveria, Doom has his own holiday - Doom's Day, which is an enormous celebration.
 * One of Doctor Doom's traits that often makes him stand out is his tendency to refer to himself in third person.
@@ -721,8 +660,7 @@ Notes
 * Doom has learned magic from several powerful individuals, including Doctor Strange "Stephen Strange (Earth-616)") and Morgan Le Fay "Morgan Le Fay (Earth-616)"). Doom has also taken apprentices of his own, such as Layla Miller "Layla Miller (Earth-616)").
 * A limited series titled *Victor von Doom* was written by Nick Spencer with artist Becky Cloonan before being cancelled.
 
-Trivia
-------
+## Trivia
 
 * In one retcon, the scar that Doom originally received from the explosion of his arcane device was, while large, not horribly disfiguring. In his eagerness to assume his masked persona, he donned the faceplate of his first suit of armor while the metal was still smoking from the forge. The burns he suffered from this act were thought to have made him truly hideous. However, this was later itself retconned in the series Books of Doom.
 * The original story of his scar was that the explosion of his demonic portal actually did cause a hideous disfiguring scar, and to suit his own hubris, he donned the infamous mask.
@@ -749,3 +687,263 @@ Trivia
 * When Doom took over Strange Academy "Strange Academy (Earth-616)"), he installed an "Anti-Reed Society."
 * Famous British-American rapper MF Doom fashioned his on-stage persona after Doctor Doom. He featured the character on the cover of his 1999 debut solo album *Operation: Doomsday*. His controversial body doubles were even referred to as "Doombots."
 
+## Links and References
+
+* Victor von Doom on Marvel.com
+* Victor von Doom on Wikipedia.org
+* The Latverian Embassy: Curt's Doctor Doom Shrine
+* Doctor Doom at the Marvel Directory
+* Doom on Fortnite Wiki
+
+### References
+
+1. ↑ "Victor von Doom" revealed in Fantastic Four #5, "Werner" later revealed in Fantastic Four (Vol. 6) #33
+2. ↑ 2.0 2.1 Fantastic Four (Vol. 7) #28
+3. ↑ 3.0 3.1 3.2 3.3 3.4 3.5 3.6 3.7 Fantastic Four #5
+4. ↑ 4.0 4.1 FF #13
+5. ↑ Silver Surfer: Loftier Than Mortals #1
+6. ↑ 6.0 6.1 6.2 Secret Wars #2
+7. ↑ Fantastic Four #287
+8. ↑ 8.0 8.1 8.2 8.3 Infamous Iron Man #1
+9. ↑ 9.0 9.1 New Avengers (Vol. 3) #31
+10. ↑ Fortnite Battle Royale: Chapter 5 Season 3
+11. ↑ 11.0 11.1 11.2 11.3 11.4 11.5 Blood Hunt #5
+12. ↑ Deadpool GLI - Summer Fun Spectacular #1
+13. ↑ Iron Man: Legacy of Doom #3
+14. ↑ All-New Guardians of the Galaxy #12
+15. ↑ Fantastic Four (Vol. 3) #537
+16. ↑ 16.0 16.1 16.2 16.3 16.4 New Avengers (Vol. 3) #33
+17. ↑ 17.0 17.1 Marvel 2-In-One #2
+18. ↑ 18.0 18.1 FF #14
+19. ↑ Dark Reign Files #1
+20. ↑ Marvel Knights: Spider-Man #20
+21. ↑ 21.0 21.1 Daredevil #37
+22. ↑ 22.0 22.1 Spider-Man/Fantastic Four #1
+23. ↑ 23.0 23.1 23.2 23.3 23.4 Fantastic Four #10
+24. ↑ Fantastic Four #260
+25. ↑ Captain America (Vol. 5) #23
+26. ↑ 26.0 26.1 Runaways (Vol. 2) #5
+27. ↑ FF #13–14
+28. ↑ 28.0 28.1 Secret Wars #8
+29. ↑ Official Handbook of the Marvel Universe: Fantastic Four 2005 #1
+30. ↑ Timeless (Vol. 2) #1
+31. ↑ 31.0 31.1 Fantastic Four (Vol. 3) #566–569
+32. ↑ Fantastic Four #236
+33. ↑ 33.0 33.1 Fantastic Four (Vol. 6) #33
+34. ↑ What The--?! #10
+35. ↑ One World Under Doom #2
+36. ↑ Savage Avengers #26
+37. ↑ Infamous Iron Man #10
+38. ↑ Deadpool: Black, White & Blood #3
+39. ↑ Fantastic Four (Vol. 7) #16
+40. ↑ Heroes Reborn: Ashema #1
+41. ↑ Venom: Lethal Protector II #4–5
+42. ↑ Avengers (Vol. 8) #40
+43. ↑ 43.0 43.1 Doctor Doom #2
+44. ↑ 44.0 44.1 44.2 Doctor Doom #3
+45. ↑ Iron Man (Vol. 6) #17
+46. ↑ Iron Man (Vol. 6) #18
+47. ↑ A.X.E.: Judgment Day #5
+48. ↑ A.X.E.: Judgment Day #6
+49. ↑ 49.0 49.1 49.2 49.3 49.4 Captain Britain and MI13 #10
+50. ↑ Captain Britain and MI13 #14
+51. ↑ 51.0 51.1 Infamous Iron Man #8
+52. ↑ 52.0 52.1 52.2 52.3 52.4 52.5 Fantastic Four Annual #2
+53. ↑ 53.0 53.1 Fantastic Four #278
+54. ↑ Books of Doom #1–6
+55. ↑ 55.0 55.1 Marvel Graphic Novel: Emperor Doom — Starring the Mighty Avengers #1
+56. ↑ 56.0 56.1 Fantastic Four vs. the X-Men #4
+57. ↑ 57.0 57.1 57.2 Fantastic Four #258
+58. ↑ Fantastic Four (Vol. 6) #6
+59. ↑ Fantastic Four #57
+60. ↑ Marvel Super Heroes Secret Wars #10–12
+61. ↑ 61.0 61.1 Avengers: The Children's Crusade #7–9
+62. ↑ Secret Wars #1–9
+63. ↑ 63.0 63.1 Blood Hunt #4
+64. ↑ 64.0 64.1 One World Under Doom #1
+65. ↑ Official Handbook of the Marvel Universe Master Edition #20
+66. ↑ 66.0 66.1 66.2 Fantastic Four (Vol. 4) #9
+67. ↑ 67.0 67.1 Marvel Super-Heroes #20
+68. ↑ Fantastic Four #6
+69. ↑ Fantastic Four #16–17
+70. ↑ Fantastic Four #23
+71. ↑ Fantastic Four #39
+72. ↑ 72.0 72.1 Fantastic Four #40
+73. ↑ Fantastic Four Annual #3
+74. ↑ Fantastic Four #57–60
+75. ↑ 75.0 75.1 Iron Man #150
+76. ↑ Marvel Super Heroes Secret Wars #1–12
+77. ↑ 77.0 77.1 Doctor Strange and Doctor Doom: Triumph and Torment #1
+78. ↑ Onslaught: Marvel Universe #1
+79. ↑ Heroes Reborn: The Return #1–4
+80. ↑ Heroes Reborn: Doomsday #1
+81. ↑ Fantastic Four (Vol. 3) #23–25
+82. ↑ Doom: The Emperor Returns #1–3
+83. ↑ 83.0 83.1 Fantastic Four (Vol. 3) #67
+84. ↑ 84.0 84.1 Fantastic Four (Vol. 3) #70
+85. ↑ 85.0 85.1 Fantastic Four (Vol. 3) #500
+86. ↑ Fantastic Four (Vol. 3) #503
+87. ↑ Fantastic Four (Vol. 3) #507–508
+88. ↑ Fantastic Four (Vol. 3) #509–511
+89. ↑ Fantastic Four (Vol. 3) #536–537
+90. ↑ Sub-Mariner (Vol. 3) #1–6
+91. ↑ Thor (Vol. 3) #5
+92. ↑ Mighty Avengers #8
+93. ↑ 93.0 93.1 93.2 93.3 93.4 93.5 93.6 93.7 Mighty Avengers #9–11
+94. ↑ 94.0 94.1 Mighty Avengers #10
+95. ↑ Fantastic Four (Vol. 3) #559–561
+96. ↑ Secret Invasion: Dark Reign #1
+97. ↑ Dark Avengers #1–4
+98. ↑ Thor (Vol. 3) #603–606
+99. ↑ Siege: The Cabal #1
+100. ↑ 100.0 100.1 100.2 Incredible Hulk (Vol. 3) #606
+101. ↑ Avengers: The Children's Crusade #3–4
+102. ↑ FF #1
+103. ↑ FF #16
+104. ↑ Winter Soldier #1
+105. ↑ FF #23
+106. ↑ New Avengers (Vol. 3) #6–7
+107. ↑ 107.0 107.1 Loki: Agent of Asgard #7
+108. ↑ Avengers & X-Men: AXIS #3
+109. ↑ Avengers World #15
+110. ↑ Avengers World #16
+111. ↑ Avengers & X-Men: AXIS #7
+112. ↑ Avengers & X-Men: AXIS #8
+113. ↑ Avengers & X-Men: AXIS #9
+114. ↑ New Avengers (Vol. 3) #24
+115. ↑ New Avengers (Vol. 3) #27
+116. ↑ New Avengers (Vol. 3) #29
+117. ↑ New Avengers (Vol. 3) #2
+118. ↑ New Avengers (Vol. 3) #32–33
+119. ↑ 119.0 119.1 119.2 119.3 119.4 119.5 119.6 Secret Wars #5
+120. ↑ Secret Wars: Official Guide to the Marvel Multiverse #1
+121. ↑ New Avengers (Vol. 3) #5
+122. ↑ Secret Wars #1
+123. ↑ Secret Wars #2–3
+124. ↑ 124.0 124.1 Secret Wars #6
+125. ↑ 125.0 125.1 125.2 Secret Wars #3
+126. ↑ Secret Wars #4
+127. ↑ Secret Wars #7
+128. ↑ 128.0 128.1 Secret Wars #9
+129. ↑ Marvel 2-In-One Annual #1
+130. ↑ 130.0 130.1 130.2 130.3 130.4 Infamous Iron Man #3
+131. ↑ 131.0 131.1 131.2 Infamous Iron Man #4
+132. ↑ 132.0 132.1 Invincible Iron Man (Vol. 3) #2
+133. ↑ Invincible Iron Man (Vol. 3) #1
+134. ↑ Invincible Iron Man (Vol. 3) #5
+135. ↑ Invincible Iron Man (Vol. 3) #6
+136. ↑ Invincible Iron Man (Vol. 3) #13
+137. ↑ Civil War II #8
+138. ↑ Infamous Iron Man #1–12
+139. ↑ Invincible Iron Man (Vol. 4) #594
+140. ↑ Invincible Iron Man (Vol. 4) #600
+141. ↑ 141.0 141.1 Fantastic Four (Vol. 6) #1
+142. ↑ Fantastic Four (Vol. 6) #6–7
+143. ↑ Fantastic Four (Vol. 6) #8–9
+144. ↑ Amazing Spider-Man (Vol. 5) #33
+145. ↑ Amazing Spider-Man (Vol. 5) #34
+146. ↑ Amazing Spider-Man (Vol. 5) #36
+147. ↑ 147.0 147.1 Doctor Doom #1
+148. ↑ 148.0 148.1 148.2 Doctor Doom #4
+149. ↑ Doctor Doom #5
+150. ↑ Doctor Doom #6
+151. ↑ Doctor Doom #7
+152. ↑ Doctor Doom #8
+153. ↑ Doctor Doom #9
+154. ↑ Doctor Doom #10
+155. ↑ 155.0 155.1 Guardians of the Galaxy (Vol. 7) #18
+156. ↑ Fantastic Four (Vol. 6) #32
+157. ↑ Fantastic Four (Vol. 6) #34
+158. ↑ Guardians of the Galaxy (Vol. 7) #15
+159. ↑ Guardians of the Galaxy (Vol. 7) #13
+160. ↑ Guardians of the Galaxy (Vol. 7) #14
+161. ↑ Fantastic Four: Reckoning War Alpha #1
+162. ↑ Fantastic Four (Vol. 6) #40
+163. ↑ Fantastic Four (Vol. 6) #42–43
+164. ↑ Fantastic Four (Vol. 6) #44
+165. ↑ Blood Hunt #1
+166. ↑ Blood Hunters #3
+167. ↑ Strange Academy: Blood Hunt #2–3
+168. ↑ Blood Hunt #3
+169. ↑ Fantastic Four (Vol. 7) #22
+170. ↑ Fantastic Four (Vol. 7) #23–26
+171. ↑ Avengers (Vol. 9) #19
+172. ↑ Amazing Spider-Man (Vol. 6) #61
+173. ↑ Dark Avengers #1–5
+174. ↑ New Avengers #51–53
+175. ↑ Fantastic Four (Vol. 3) #69
+176. ↑ 176.0 176.1 Fantastic Four (Vol. 3) #569
+177. ↑ Invincible Iron Man (Vol. 4) #596
+178. ↑ Fantastic Four #407
+179. ↑ Doom #3
+180. ↑ Fantastic Four (Vol. 3) #536
+181. ↑ Marvel Team-Up #44
+182. ↑ Fantastic Four #58
+183. ↑ Fantastic Four #59
+184. ↑ Fantastic Four #60
+185. ↑ Fantastic Four: World's Greatest Comics Magazine #10–12
+186. ↑ Marvel Super Heroes Secret Wars #10–11
+187. ↑ Avengers: The Children's Crusade #7–8
+188. ↑ Secret Wars #2–9
+189. ↑ Avengers (Vol. 8) #41
+190. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+191. ↑ 191.0 191.1 191.2 191.3 191.4 Fantastic Four #17
+192. ↑ Marvel Super Heroes Secret Wars #3
+193. ↑ Avengers #332–333
+194. ↑ Fantastic Four #84
+195. ↑ Incredible Hulk #5
+196. ↑ Fantastic Four #373
+197. ↑ Venom (Vol. 5) #25
+198. ↑ Doom: The Emperor Returns #1
+199. ↑ 199.0 199.1 Super-Villain Team-Up #13
+200. ↑ 200.0 200.1 Doom #1
+201. ↑ Avengers #25
+202. ↑ Black Panther (Vol. 4) #19
+203. ↑ 203.0 203.1 Astonishing Tales #8
+204. ↑ Daredevil #38
+205. ↑ X-Factor (Vol. 3) #202
+206. ↑ Fantastic Four #87
+207. ↑ 207.0 207.1 Marvel Atlas #1; Latveria's entry
+208. ↑ Venom (Vol. 5) #24
+209. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+210. ↑ Fortnite Battle Royale: Chapter 5 Season 3
+211. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+212. ↑ 212.0 212.1 Amazing Spider-Man #5
+213. ↑ Incredible Hulk (Vol. 4) #7
+214. ↑ Amazing Spider-Man #350
+215. ↑ Infinity Gauntlet #4
+216. ↑ Fantastic Four (Vol. 3) #567
+217. ↑ 217.00 217.01 217.02 217.03 217.04 217.05 217.06 217.07 217.08 217.09 217.10 217.11 217.12 217.13 217.14 217.15 Machines of Doom #1
+218. ↑ Giant-Size Super-Villain Team-Up #1
+219. ↑ 219.0 219.1 219.2 Fantastic Four #199
+220. ↑ 220.0 220.1 Uncanny X-Men #145
+221. ↑ Avengers #333
+222. ↑ Fantastic Four #319
+223. ↑ Super-Villain Team-Up #14
+224. ↑ Super-Villain Team-Up #3
+225. ↑ Iron Man #149
+226. ↑ Stating in Captain Britain and MI13 #10 that he has always anticipated war between himself and Dracula "Vlad Dracula (Earth-616)").
+227. ↑ Fantastic Four #246
+228. ↑ Fantastic Four #318
+229. ↑ Incredible Hulk #143
+230. ↑ 230.0 230.1 Infamous Iron Man #2
+231. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+232. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+233. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+234. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+235. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+236. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+237. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+238. ↑ Fortnite Battle Royale: Chapter 5 Season 4
+239. ↑ Fantastic Four (Vol. 6) #43–44
+240. ↑ Unbeatable Squirrel Girl (Vol. 2) #3
+241. ↑ Amazing Spider-Man (Vol. 2) #50
+242. ↑ X-Men: Manifest Destiny #1
+243. ↑ 243.0 243.1 Books of Doom #1
+244. ↑ Iron Man #249
+245. ↑ Books of Doom #4
+246. ↑ Ziggy Pig-Silly Seal Comics (Vol. 2) #1
+247. ↑ X-Men / Fantastic Four (Vol. 2) #4
+248. ↑ Doom Academy #1
+249. ↑ Official Handbook of the Marvel Universe A to Z #3
+250. ↑ Fall of the Hulks: Alpha Vol 1 1

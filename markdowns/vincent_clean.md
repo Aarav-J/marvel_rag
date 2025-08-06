@@ -1,5 +1,4 @@
-Vin Gonzales
--------------------------------------------------
+## Vin Gonzales
 
  from Amazing Spider-Man Vol 2 552 002")
 
@@ -13,8 +12,7 @@ Vincent "Vin" Gonzales
 
 Spider-Man
 
-Affiliation and Relationships
------------------------------
+## Affiliation and Relationships
 
 ### Affiliation
 
@@ -26,13 +24,13 @@ FormerlyNYPD "New York City Police Department (Earth-616)")
 Parents:* David Gonzales "David Gonzales (Earth-616)") (father)
 Siblings:
 
+* Michele Gonzales "Michele Gonzales (Earth-616)") (sister)
 
 ### Marital Status
 
 Single
 
-Physical Characteristics
-----------------------------------------------
+## Physical Characteristics
 
 ### Gender
 
@@ -50,6 +48,7 @@ Male
 
 Irises:
 
+* Brown
 
 ### Hair
 
@@ -59,8 +58,7 @@ Black
 
 Green Goblin tattoo on left forearm
 
-Origin and Living Status
-------------------------
+## Origin and Living Status
 
 ### Origin
 
@@ -78,8 +76,7 @@ Earth-616
 
 Hunts Point, Bronx, New York "New York (State)")
 
-Personal Information
---------------------
+## Personal Information
 
 ### Identity
 
@@ -97,8 +94,7 @@ Criminal, prisoner; former Police Officer
 
 New York City, New York "New York (State)")
 
-Creators and Appearances
-------------------------
+## Creators and Appearances
 
 ### Creators
 
@@ -109,9 +105,7 @@ Dan Slott, Phil Jimenez
 Free Comic Book Day 2007 (Spider-Man) #1_Vol_1_1 "Free Comic Book Day 2007 (Spider-Man) Vol 1 1") 
 (May, 2007) 
 
-
-History
--------
+## History
 
 Vincent was originally an New York City police officer "New York City Police Department (Earth-616)") who thought that Spider-Man "Peter Parker (Earth-616)") was a criminal. He had over the years read and enjoyed J Jonah Jameson "John Jonah Jameson (Earth-616)")'s Daily Bugle editorials against Spider-Man.
 
@@ -129,8 +123,7 @@ However, because of Cooper's discovery, the two were framed by the leader of the
 
 Vin seemingly turned over a new leaf upon his release. During a going away party though, Vin confronted Harry with information regarding his father "Norman Osborn (Earth-616)") and the "heir to the throne" "Stanley Osborn (Earth-616)"). He revealed a Green Goblin tattoo on his left forearm, showing an allegiance to Norman. Harry then brutally assaulted Vin with a taser, not wanting him or "any of my dad's groupies" to come near his child.[*citation needed*]
 
-Attributes
-----------
+## Attributes
 
 *Power Grid*
 
@@ -143,9 +136,9 @@ None
 
 ### Abilities
 
+* **Police Training:** Vin Gonzales received standard law enforcement officer training and can use guns.
 
-Paraphernalia
--------------
+## Paraphernalia
 
 ### Weapons
 
@@ -155,3 +148,20 @@ Handguns, in particular off duty Smith & Wesson .36
 
 Formerly. police car
 
+## Links and References
+
+* Vincent Gonzales on Marvel.com
+
+### References
+
+1. ↑ Amazing Spider-Man (Vol. 2) #565
+2. ↑ Amazing Spider-Man (Vol. 2) #559
+3. ↑_Vol_1_1_3-0) Free Comic Book Day 2007 (Spider-Man) #1_Vol_1_1 "Free Comic Book Day 2007 (Spider-Man) Vol 1 1")
+4. ↑ Amazing Spider-Man (Vol. 2) #552
+5. ↑ Amazing Spider-Man (Vol. 2) #553
+6. ↑ Amazing Spider-Man (Vol. 2) #555–557
+7. ↑ Amazing Spider-Man (Vol. 2) #559–564
+8. ↑ Amazing Spider-Man (Vol. 2) #565–567
+9. ↑ Official Handbook of the Marvel Universe A to Z #14
+10. ↑ Official Handbook of the Marvel Universe A to Z #14
+11. ↑ Official Handbook of the Marvel Universe A to Z Vol 1 14
