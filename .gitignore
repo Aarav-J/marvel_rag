@@ -2,3 +2,8 @@ quick_code.py
 reconstructed.py
 sections.py
 .env
+urls.txt
+urls_quick.txt
+urls_30.txt
+nonclean_urls_20.txt
+clean.py

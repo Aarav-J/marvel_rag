@@ -15,7 +15,7 @@ def get_html_content(url):
             return content
     print(f"Failed to retrieve content from {url}")
     return None
-markdownDocument = convert_to_markdown(get_html_content(link), heading_style="atx") 
+# markdownDocument = convert_to_markdown(get_html_content(link), heading_style="atx") 
 
 def remove_section(title, text): 
     # Pattern to match a specific section header and all content until the next header or end
@@ -38,12 +38,18 @@ def clean(text):
     clean = re.sub(r' {2,}', ' ', clean)
     return clean
 # markdownDocument = remove_section("Links and References", markdownDocument)
-markdownDocument = remove_section("See Also", markdownDocument)
+# markdownDocument = remove_section("See Also", markdownDocument)
 
-markdownDocument = remove_section("Contents", markdownDocument)
+# markdownDocument = remove_section("Contents", markdownDocument)
 # markdownDocument = remove_contents(markdownDocument)
 
-with open("./markdowns/vincent_clean.md", "w", encoding="utf-8") as file:
-    file.write(clean(markdownDocument))
+# with open("./markdowns/test.md", "w", encoding="utf-8") as file:
+#     file.write(clean(markdownDocument))
 
-print("Markdown document created successfully.")
+# print("Markdown document created successfully.")
+def getMarkdownDocument(url): 
+    markdownDocument = convert_to_markdown(get_html_content(url), heading_style="atx")
+    markdownDocument = remove_section("See Also", markdownDocument)
+    markdownDocument = remove_section("Contents", markdownDocument)
+    # markdownDocument = remove_contents(markdownDocument)
+    return clean(markdownDocument)

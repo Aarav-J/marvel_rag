@@ -56,7 +56,7 @@ retrieval_chain = create_retrieval_chain(
     combine_docs_chain=combine_docs_chain,
 )
 
-query1 = "Why was vincent gonzales suspended from the nypd?"
+query1 = "Why did Adrian Toomes or the Vulture come out of retirement?"
 print("without knowledge:", llm.invoke(query1).content)
 answer1_with_knowledge = retrieval_chain.invoke({"input": query1})
 print("Answer with knowledge:\n\n", answer1_with_knowledge['answer'])
