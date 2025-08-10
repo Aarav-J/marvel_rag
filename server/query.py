@@ -1,6 +1,7 @@
 from langchain_text_splitters import MarkdownHeaderTextSplitter
 from langchain_pinecone import PineconeEmbeddings, PineconeVectorStore
 from pinecone import Pinecone, ServerlessSpec
+from langchain_openai import OpenAIEmbeddings 
 from langchain_openai import ChatOpenAI
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -16,21 +17,24 @@ cloud = "aws"
 region = "us-east-1"
 
 spec = ServerlessSpec(cloud=cloud, region=region)
-index_name = "marvel"
+index_name = "marvel-embeddings"
 # model_name = 'multilingual-e5-large'
 # embeddings = PineconeEmbeddings(
 #     model=model_name,
 #     pinecone_api_key=os.getenv("PINECONE_API_KEY"),
 # )
 
-embeddings = PineconeEmbeddings(
-    model="multilingual-e5-large",
-    pinecone_api_key=os.getenv("PINECONE_API_KEY"),
+embeddings = OpenAIEmbeddings(
+    model="text-embedding-3-small", 
+    openai_api_key=os.getenv("OPENAI_API_KEY"),
 )
+
+
+embedding_dimension = 1536  
 
 vectorstore = PineconeVectorStore.from_existing_index(
     embedding=embeddings, 
-    index_name="marvel",
+    index_name="marvel-embeddings",
     namespace="documents",
 )
 index = pc.Index(index_name)
@@ -56,7 +60,7 @@ retrieval_chain = create_retrieval_chain(
     combine_docs_chain=combine_docs_chain,
 )
 
-query1 = "Why did Adrian Toomes or the Vulture come out of retirement?"
+query1 = input("question: ")
 print("without knowledge:", llm.invoke(query1).content)
 answer1_with_knowledge = retrieval_chain.invoke({"input": query1})
 print("Answer with knowledge:\n\n", answer1_with_knowledge['answer'])
