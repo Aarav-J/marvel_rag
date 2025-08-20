@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Header
 from typing import Annotated
 from langchain_text_splitters import MarkdownHeaderTextSplitter
@@ -16,7 +17,13 @@ from dotenv import load_dotenv
 
 app = FastAPI() 
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"], 
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
      
 load_dotenv()
 

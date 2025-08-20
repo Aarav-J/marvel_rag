@@ -2,6 +2,8 @@
 import React from 'react'
 import useStore from '@/store/useStore';
 import { useState } from 'react';
+import {query} from '@/utils';
+import { queryResponse } from '@/types';
 const Chatbar = () => {
   const selectedChatId = useStore((state) => state.selectedChatId)
   const [message, setMessage] = useState('')
@@ -9,7 +11,9 @@ const Chatbar = () => {
   const onClick = () => { 
     if (selectedChatId && message.trim()) {
       addMessage({ chatId: selectedChatId, content: message, role: 'user' })
-      addMessage({ chatId: selectedChatId, content: message, role: 'assistant' })
+      query(message).then((response: queryResponse) => {
+        addMessage({ chatId: selectedChatId, content: response['response'], role: 'assistant' })
+      })
       setMessage('')
 
     }

@@ -3,3 +3,8 @@ export type message = {
     chatId: string
     content: string
 }
+
+export type queryResponse = { 
+    response: string
+    query: string
+}
