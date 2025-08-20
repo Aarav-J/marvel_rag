@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi import Header
+from typing import Annotated
 from langchain_text_splitters import MarkdownHeaderTextSplitter
 from langchain_pinecone import PineconeEmbeddings, PineconeVectorStore
 from pinecone import Pinecone, ServerlessSpec
@@ -72,5 +74,6 @@ def query_marvel(query: str):
     return response['answer']
 
 @app.get("/query/")
-async def get_query(query: str):
-    return query_marvel(query)
+async def get_query(query: Annotated[str, Header()]):
+    response = query_marvel(query)
+    return {"query": query, "response": response}
