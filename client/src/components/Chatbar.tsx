@@ -11,7 +11,7 @@ const Chatbar = () => {
   const onClick = () => { 
     if (selectedChatId && message.trim()) {
       addMessage({ chatId: selectedChatId, content: message, role: 'user' })
-      query(message).then((response: queryResponse) => {
+      query(message, selectedChatId).then((response: queryResponse) => {
         addMessage({ chatId: selectedChatId, content: response['response'], role: 'assistant' })
       })
       setMessage('')
