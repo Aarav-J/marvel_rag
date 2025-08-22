@@ -80,7 +80,7 @@ llm = ChatOpenAI(
 prompt = ChatPromptTemplate.from_messages([
     ("system",
      "You are a precise, helpful assistant answering questions about Marvel content. "
-     "Use ONLY the provided context and the running chat history to answer. "
+     "Prioritize the provided context and the running chat history to answer. "
      "If the answer is not in the context, say you don't know and suggest the best next query.\n\n"
      "Answer briefly but completely. If listing items, use concise bullets.\n"
      "Always cite specific sources with titles or ids when you reference context."),

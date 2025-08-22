@@ -9,6 +9,8 @@ interface StoreState {
     addMessage: (message: message) => void; 
     newModalOpen: boolean;
     setNewModalOpen: (isOpen: boolean) => void;
+    loading: boolean; 
+    setLoading: (loading: boolean) => void;
 }
 
 const useStore = create<StoreState>((set) => ({
@@ -20,6 +22,8 @@ const useStore = create<StoreState>((set) => ({
     setSelectedChatId: (chatId) => set({ selectedChatId: chatId }),
     addChat: (chatId) => set((state) => ({ chats: [...state.chats, chatId] })),
     addMessage: (message) => set((state) => ({ messages: [...state.messages, message] })),
+    loading: false, 
+    setLoading: (loading: boolean) => set({ loading: loading }),
 }));
 
 export default useStore;
