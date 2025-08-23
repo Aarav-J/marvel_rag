@@ -18,7 +18,7 @@ const Chatbot = () => {
 
 
                         {
-                        messages.filter((message) => message.chatId === selectedChatId).map((message, index) => (
+                        messages.filter((message: message) => message.chatId === selectedChatId).map((message, index) => (
                             <div key={index} className={`flex items-start gap-3 ${message.role === 'user' ? 'justify-end' : ''}`}>
                                 {message.role === 'user' ? (
                                     <>
