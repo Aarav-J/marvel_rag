@@ -84,3 +84,19 @@ export const addMessageToChat = async (chatId: string, message: {role: string, c
         return error
     })
 }
+
+
+export const listChats = () => { 
+    return database.listDocuments(
+        process.env.NEXT_PUBLIC_APPWRITE_DATABASE || "",
+        process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || "", 
+        [Query.orderAsc('$createdAt')]
+    ).then(function(response) { 
+        console.log("List Chats Response:", response);
+        return response.documents
+    }, 
+    function(error) { 
+        console.log(error);
+        return [];
+    })
+}
