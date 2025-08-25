@@ -4,6 +4,7 @@ import useStore from '@/store/useStore';
 import { useState } from 'react';
 import {query} from '@/utils';
 import { queryResponse } from '@/types';
+import { addMessageToChat } from '@/utils';
 const Chatbar = () => {
   const selectedChatId = useStore((state) => state.selectedChatId)
   const [message, setMessage] = useState('')
@@ -11,10 +12,12 @@ const Chatbar = () => {
   const setLoading = useStore((state) => state.setLoading)
   const onClick = () => { 
     if (selectedChatId && message.trim()) {
-      addMessage({ chatId: selectedChatId, content: message, role: 'user' })
+      addMessage( {'chatId': selectedChatId, 'role': 'user', 'content': message} )
+      addMessageToChat( selectedChatId, {role: 'user', content: message, })
       setLoading(true)
       query(message, selectedChatId).then((response: queryResponse) => {
-        addMessage({ chatId: selectedChatId, content: response['response'], role: 'assistant' })
+        addMessage( {'chatId': selectedChatId, 'role': 'assistant', 'content': response['response']} )
+        addMessageToChat( selectedChatId, {role: 'assistant', content: response['response'], })
       }).finally(() => {
         setLoading(false)
       })

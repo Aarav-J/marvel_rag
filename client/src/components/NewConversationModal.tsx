@@ -1,5 +1,6 @@
 'use client'
 import useStore from '@/store/useStore'
+import { createChat } from '@/utils'
 import React, { useState } from 'react'
 
 const NewConversationModal = () => {
@@ -23,6 +24,7 @@ const NewConversationModal = () => {
                 addChat(chatTitle)
                 setSelectedChatId(chatTitle)
                 setChatTitle('')
+                createChat(chatTitle)
                 setNewModalOpen(false)
               }
             }} className="bg-blue-600 text-white rounded-lg px-4 py-2">Create</button>
