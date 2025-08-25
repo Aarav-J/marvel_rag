@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 const NewConversationModal = () => {
   const setSelectedChatId = useStore((state) => state.setSelectedChatId)
   const addChat = useStore((state) => state.addChat)
+  const setMessages = useStore((state) => state.setMessages)
   const newModalOpen = useStore((state) => state.newModalOpen)
   const setNewModalOpen = useStore((state) => state.setNewModalOpen)
   const [chatTitle, setChatTitle] = useState('')
@@ -24,6 +25,7 @@ const NewConversationModal = () => {
                 addChat(chatTitle)
                 setSelectedChatId(chatTitle)
                 setChatTitle('')
+                setMessages([])
                 createChat(chatTitle)
                 setNewModalOpen(false)
               }

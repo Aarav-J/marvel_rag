@@ -26,7 +26,7 @@ const Chatbot = () => {
                                             {message.content}
                                         </div>
                                         <div className="bg-gray-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
-                                        You
+                                    You
                                         </div>
                                     </>) : 
                                     ( 
