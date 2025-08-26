@@ -88,6 +88,7 @@ export const addMessageToChat = async (chatId: string, message: {role: string, c
 
 
 export const listChats = (userId: string) => { 
+    console.log("Listing chats for userId:", userId);
     return database.listDocuments(
         process.env.NEXT_PUBLIC_APPWRITE_DATABASE || "",
         process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || "", 

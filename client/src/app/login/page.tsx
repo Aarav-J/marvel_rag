@@ -9,16 +9,27 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const setMessages = useStore((state) => state.setMessages);
   const setChats = useStore((state) => state.setChats);
+  const setUserId = useStore((state) => state.setUserId);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     try { 
-      const user = await loginUser(email, password);
-      console.log(user.$id)
-      const chats = await listChats(user.$id);
-      setChats(chats.map((chat) => chat.chatId));
+      const loginResponse = await loginUser(email, password);
+      console.log("Login response:", loginResponse);
+      
+      // Get the user data and set userId in store
+      const user = await getUser();
+      if (user) {
+        console.log("Setting userId:", user.$id);
+        setUserId(user.$id); // Set userId in store
+        
+        // Now fetch chats with the userId
+        const chats = await listChats(user.$id);
+        console.log("Fetched chats:", chats);
+        setChats(chats.map((chat) => chat.chatId));
+      }
     } catch (error) {
       console.error("Login failed:", error);
       setIsLoading(false);
@@ -26,9 +37,7 @@ export default function Login() {
     }
     
     setIsLoading(false);
-    console.log(await getUser());
     router.push('/');
-
   };
 
   return (
