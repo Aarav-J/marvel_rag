@@ -5,18 +5,25 @@ import { getDocument, listChats } from '@/utils'
 import { chat } from '@/types'
 
 const History = () => {
-  useEffect(() => { 
-    listChats().then((chats) => {
-      setChats(chats.map((chat) => chat.chatId))
-    })
-  }, [])
+  const userId = useStore((state) => state.userId)
+  
   const chats = useStore((state) => state.chats)
   const setChats = useStore((state) => state.setChats)
   const setMessages = useStore((state) => state.setMessages)
   const selectedChatId = useStore((state) => state.selectedChatId)
   const setNewModalOpen = useStore((state) => state.setNewModalOpen)
   const setSelectedChatId = useStore((state) => state.setSelectedChatId)
-
+  useEffect(() => { 
+    if (userId) {
+      console.log("Fetching chats for userId:", userId);
+      listChats(userId).then((chats) => {
+        console.log("Retrieved chats:", chats);
+        setChats(chats.map((chat) => chat.chatId))
+      }).catch((error) => {
+        console.error("Error fetching chats:", error);
+      });
+    }
+  }, [userId, setChats])
   const onClick = async (chat:string ) => { 
     setSelectedChatId(chat)
     const document = await getDocument(chat) as chat; 

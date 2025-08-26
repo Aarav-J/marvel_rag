@@ -1,9 +1,47 @@
+'use client';
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Chatbot from "@/components/Chatbot";
 import Chatbar from "@/components/Chatbar";
 import History from "@/components/History";
 import NewConversationModal from "@/components/NewConversationModal";
+import { logoutUser, getUser} from '@/utils';
+import { useRouter } from "next/navigation";
+import useStore from "@/store/useStore";
+
 export default function Home() {
+ const router = useRouter();  
+ const userId = useStore((state) => state.userId);
+ const setUserId = useStore((state) => state.setUserId);
+
+ useEffect(() => {
+   const initializeUser = async () => {
+     try {
+       const user = await getUser();
+       if (user) {
+         setUserId(user.$id);
+       }
+     } catch (error) {
+       console.error('Failed to get user:', error);
+     }
+   };
+   
+   initializeUser();
+ }, [setUserId]);
+
+ const handleLogout = async () => {
+        await logoutUser();
+        setUserId('');
+        router.push('/login');
+    }
+    const handleGetUser = async () => {
+        console.log("fetching user...");
+        const user = await getUser();
+        console.log(user);
+        if (user) {
+          setUserId(user.$id);
+        }
+    } 
   return (
     <div className="font-sans flex flex-col items-center justify-start h-screen gap-8 p-8">
       {/* Header Section */}
@@ -13,6 +51,14 @@ export default function Home() {
             <span className="text-2xl font-bold tracking-widest text-white">MARVEL</span>
           </div>
           <span className="text-2xl font-normal text-marvel-red">Oracle</span>
+          <div>
+            {userId !== '' ? (
+              <button onClick={handleLogout}>Logout</button>
+            ) : (
+              <button onClick={() => router.push('/login')}>Login</button>
+            )}
+            <button onClick={handleGetUser}>Get user</button>
+          </div>
         </div>
       </div>
 
