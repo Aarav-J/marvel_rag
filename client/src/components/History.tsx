@@ -5,8 +5,9 @@ import { getDocument, listChats } from '@/utils'
 import { chat } from '@/types'
 
 const History = () => {
+  const userId = useStore((state) => state.userId)
   useEffect(() => { 
-    listChats().then((chats) => {
+    listChats(userId).then((chats) => {
       setChats(chats.map((chat) => chat.chatId))
     })
   }, [])

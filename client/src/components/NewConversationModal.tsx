@@ -9,6 +9,7 @@ const NewConversationModal = () => {
   const newModalOpen = useStore((state) => state.newModalOpen)
   const setNewModalOpen = useStore((state) => state.setNewModalOpen)
   const [chatTitle, setChatTitle] = useState('')
+  const userId = useStore((state) => state.userId);
   return (
     <>
       {newModalOpen && (
@@ -24,7 +25,7 @@ const NewConversationModal = () => {
                 addChat(chatTitle)
                 setSelectedChatId(chatTitle)
                 setChatTitle('')
-                createChat(chatTitle)
+                createChat(chatTitle, userId)
                 setNewModalOpen(false)
               }
             }} className="bg-blue-600 text-white rounded-lg px-4 py-2">Create</button>

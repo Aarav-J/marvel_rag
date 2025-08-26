@@ -12,11 +12,11 @@ const Chatbar = () => {
   const setLoading = useStore((state) => state.setLoading)
   const onClick = () => { 
     if (selectedChatId && message.trim()) {
-      addMessage( {'chatId': selectedChatId, 'role': 'user', 'content': message} )
+      addMessage( {'role': 'user', 'content': message} )
       addMessageToChat( selectedChatId, {role: 'user', content: message, })
       setLoading(true)
       query(message, selectedChatId).then((response: queryResponse) => {
-        addMessage( {'chatId': selectedChatId, 'role': 'assistant', 'content': response['response']} )
+        addMessage( {'role': 'assistant', 'content': response['response']} )
         addMessageToChat( selectedChatId, {role: 'assistant', content: response['response'], })
       }).finally(() => {
         setLoading(false)

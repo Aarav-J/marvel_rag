@@ -2,13 +2,19 @@
 import React, { useEffect } from 'react';
 import useStore from '@/store/useStore';
 import { message } from '@/types';
+import { getUser } from '@/utils';
+import { logoutUser } from '@/utils';
+import { useRouter } from 'next/navigation';
 const Chatbot = () => {
+    
     const selectedChatId = useStore((state) => state.selectedChatId);
     const messages = useStore((state) => state.messages);
     const loading = useStore((state) => state.loading);
+    const router = useRouter(); 
     
     return ( 
         <div className="border border-gray-600 bg-gray-800 shadow-md rounded-lg w-full h-full flex flex-col">
+
             <div className="flex-1 overflow-y-auto overflow-x-hidden p-6">
                 {
                     !selectedChatId ? ( 

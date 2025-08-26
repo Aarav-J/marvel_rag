@@ -13,9 +13,13 @@ interface StoreState {
     setNewModalOpen: (isOpen: boolean) => void;
     loading: boolean; 
     setLoading: (loading: boolean) => void;
+    userId: string
+    setUserId: (userId: string) => void;
 }
 
 const useStore = create<StoreState>((set) => ({
+    userId: '', 
+    setUserId: (userId: string) => set({ userId: userId }),
     chats: [],
     selectedChatId: null,
     messages: [],

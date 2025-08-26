@@ -1,6 +1,6 @@
 import axios from "axios";
-import { database } from "./appwrite";
-import { ID, Query} from "appwrite";
+import client, { database } from "./appwrite";
+import { ID, Query, Account} from "appwrite";
 import { chat, message } from "./types";
 export const query = (query: string, id: string) => { 
     return axios.get('http://localhost:8000/query/', {
@@ -19,7 +19,7 @@ export const query = (query: string, id: string) => {
 }
 
 
-export const createChat = (chatId: string) => { 
+export const createChat = (chatId: string, userId: string) => { 
     console.log("Creating chat with ID:", chatId);
     console.log("Using Database ID:", process.env.NEXT_PUBLIC_APPWRITE_DATABASE);
     console.log("Using Collection ID:", process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION);
@@ -29,6 +29,7 @@ export const createChat = (chatId: string) => {
         ID.unique(), 
         { 
             'chatId': chatId,
+            'userId': userId,
             'messages': []
         }
     );
@@ -86,11 +87,11 @@ export const addMessageToChat = async (chatId: string, message: {role: string, c
 }
 
 
-export const listChats = () => { 
+export const listChats = (userId: string) => { 
     return database.listDocuments(
         process.env.NEXT_PUBLIC_APPWRITE_DATABASE || "",
         process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || "", 
-        [Query.orderAsc('$createdAt')]
+        [Query.equal('userId', userId)]
     ).then(function(response) { 
         console.log("List Chats Response:", response);
         return response.documents
@@ -99,4 +100,49 @@ export const listChats = () => {
         console.log(error);
         return [];
     })
+}
+
+export const createUser = async (email: string, password: string, firstName: string, lastName: string) => {
+    const account = new Account(client);
+    const result = await account.create(
+        ID.unique(),
+        email,
+        password,
+        firstName + " " + lastName
+    );
+    console.log(result)
+}
+
+
+export const loginUser = async (email: string, password: string) => {
+    const account = new Account(client);
+    try {
+        const response = await account.createEmailPasswordSession(email, password);
+        console.log("Login successful:", response);
+        return response;
+    } catch (error) {
+        console.error("Login failed:", error);
+        throw error;
+    }
+}
+   
+
+export const getUser = async () => {
+    const account = new Account(client);
+    try {
+        const user = await account.get();
+        return user;
+    } catch (error) {
+        console.error("Error fetching user:", error);
+        return null;
+    }
+}
+export const logoutUser = async () => {
+    const account = new Account(client);
+    try {
+        await account.deleteSession('current');
+        console.log("Logout successful");
+    } catch (error) {
+        console.error("Logout failed:", error);
+    }
 }
