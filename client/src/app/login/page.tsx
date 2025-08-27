@@ -27,6 +27,7 @@ export default function Login() {
         
         // Now fetch chats with the userId
         const chats = await listChats(user.$id);
+        setMessages([]); // Clear messages on new login
         console.log("Fetched chats:", chats);
         setChats(chats.map((chat) => chat.chatId));
       }

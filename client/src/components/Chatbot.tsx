@@ -15,7 +15,7 @@ const Chatbot = () => {
     return ( 
         <div className="border border-gray-600 bg-gray-800 shadow-md rounded-lg w-full h-full flex flex-col">
 
-            <div className="flex-1 overflow-y-auto overflow-x-hidden p-6">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar p-6">
                 {
                     !selectedChatId ? ( 
                         <span className="text-gray-500">Select a timeline to start chatting!</span>

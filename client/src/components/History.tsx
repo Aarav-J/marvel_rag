@@ -33,7 +33,7 @@ const History = () => {
     console.log(messages.map(message => JSON.parse(message as unknown as string)))
   }
   return (
-    <div className='border border-gray-600 bg-gray-800 text-white shadow-md rounded-lg p-4 w-full h-full'>
+    <div className='border border-gray-600 bg-gray-800 text-white shadow-md rounded-lg p-4 w-full h-full overflow-y-scroll custom-scrollbar overflow-x-hidden'>
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold">Timelines</h3>
         <button className="bg-red-600 text-white text-xs px-2 py-1 rounded cursor-pointer" onClick={() => {setNewModalOpen(true)}}>New</button>
@@ -41,7 +41,7 @@ const History = () => {
       <div className="space-y-2">
 
         {chats.map((chat) => ( 
-            <div className={`text-white p-3 rounded cursor-pointer ${selectedChatId === chat ? 'bg-red-600' : 'bg-gray-700'}`} key={chat} onClick={() => onClick(chat)}>
+            <div className={`text-white p-3 rounded cursor-pointer ${selectedChatId === chat ? 'bg-red-600' : 'bg-gray-700'} overflow-x-clip`} key={chat} onClick={() => onClick(chat)}>
               {chat || 'Untitled Chat'}
             </div>
         ))}

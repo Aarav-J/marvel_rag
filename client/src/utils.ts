@@ -120,6 +120,26 @@ export const loginUser = async (email: string, password: string) => {
     try {
         const response = await account.createEmailPasswordSession(email, password);
         console.log("Login successful:", response);
+        
+        // Get user data to include in cookie setting
+        const user = await account.get();
+        
+        // Set cookies via secure API route
+        const cookieResponse = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                sessionId: response.$id,
+                userId: user.$id,
+            }),
+        });
+        
+        if (!cookieResponse.ok) {
+            console.error('Failed to set authentication cookies');
+        }
+        
         return response;
     } catch (error) {
         console.error("Login failed:", error);
@@ -143,7 +163,31 @@ export const logoutUser = async () => {
     try {
         await account.deleteSession('current');
         console.log("Logout successful");
+        
+        // Clear cookies via secure API route
+        const cookieResponse = await fetch('/api/auth/logout', {
+            method: 'POST',
+        });
+        
+        if (!cookieResponse.ok) {
+            console.error('Failed to clear authentication cookies');
+        }
+        
     } catch (error) {
         console.error("Logout failed:", error);
     }
+}
+
+export const cookieClick = async () => { 
+    // Client-side cookie access
+    console.log("Document cookies:", document.cookie);
+    
+    // Parse cookies into an object for easier reading
+    const cookies = document.cookie.split(';').reduce((acc, cookie) => {
+        const [name, value] = cookie.trim().split('=');
+        acc[name] = value;
+        return acc;
+    }, {} as Record<string, string>);
+    
+    console.log("Parsed cookies:", cookies);
 }
