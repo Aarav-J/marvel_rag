@@ -3,15 +3,21 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { getUser, listChats, loginUser } from '@/utils';
 import useStore from '@/store/useStore';
+type Chat = { 
+  id: string, 
+  name: string
+}
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  
   const setMessages = useStore((state) => state.setMessages);
   const setChats = useStore((state) => state.setChats);
   const setUserId = useStore((state) => state.setUserId);
+  const setUserName = useStore((state) => state.setUserName);
   const router = useRouter();
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -24,12 +30,15 @@ export default function Login() {
       if (user) {
         console.log("Setting userId:", user.$id);
         setUserId(user.$id); // Set userId in store
-        
+        setUserName(user.name); // Set userName in store
         // Now fetch chats with the userId
         const chats = await listChats(user.$id);
         setMessages([]); // Clear messages on new login
         console.log("Fetched chats:", chats);
-        setChats(chats.map((chat) => chat.chatId));
+        const newChats = chats.map((chat) => { 
+          return {id: chat.$id, name: chat.chatId}
+        })
+        setChats(newChats)
       }
     } catch (error) {
       console.error("Login failed:", error);

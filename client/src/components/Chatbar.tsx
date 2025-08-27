@@ -7,19 +7,29 @@ import { queryResponse } from '@/types';
 import { addMessageToChat } from '@/utils';
 const Chatbar = () => {
   const selectedChatId = useStore((state) => state.selectedChatId)
+  const chats = useStore((state) => state.chats)
   const [message, setMessage] = useState('')
   const addMessage = useStore((state) => state.addMessage)
   const setLoading = useStore((state) => state.setLoading)
+  const setLoadingChatId = useStore((state) => state.setLoadingChatId)
+  const loadingChatId = useStore((state) => state.loadingChatId)
+  
   const onClick = () => { 
     if (selectedChatId && message.trim()) {
+      // Find the chat name from the selectedChatId
+      const selectedChat = chats.find(chat => chat.id === selectedChatId);
+      const chatName = selectedChat?.name || selectedChatId;
+      
       addMessage( {'role': 'user', 'content': message} )
-      addMessageToChat( selectedChatId, {role: 'user', content: message, })
+      addMessageToChat( chatName, {role: 'user', content: message, })
       setLoading(true)
-      query(message, selectedChatId).then((response: queryResponse) => {
+      setLoadingChatId(selectedChatId);
+      query(message, chatName).then((response: queryResponse) => {
         addMessage( {'role': 'assistant', 'content': response['response']} )
-        addMessageToChat( selectedChatId, {role: 'assistant', content: response['response'], })
+        addMessageToChat( chatName, {role: 'assistant', content: response['response'], })
       }).finally(() => {
         setLoading(false)
+        setLoadingChatId(null);
       })
       setMessage('')
 

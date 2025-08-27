@@ -19,30 +19,28 @@ export const query = (query: string, id: string) => {
 }
 
 
-export const createChat = (chatId: string, userId: string) => { 
+export const createChat = async (chatId: string, userId: string) => { 
     console.log("Creating chat with ID:", chatId);
     console.log("Using Database ID:", process.env.NEXT_PUBLIC_APPWRITE_DATABASE);
     console.log("Using Collection ID:", process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION);
-    const promise =  database.createDocument(
-        process.env.NEXT_PUBLIC_APPWRITE_DATABASE || "",
-        process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || "", 
-        ID.unique(), 
-        { 
-            'chatId': chatId,
-            'userId': userId,
-            'messages': []
-        }
-    );
-
-    promise.then(function(response) { 
-        console.log(response)
-        return response
-    }, 
-    function(error) { 
-        console.log(error);
-        return error
-    })
     
+    try {
+        const response = await database.createDocument(
+            process.env.NEXT_PUBLIC_APPWRITE_DATABASE || "",
+            process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || "", 
+            ID.unique(), 
+            { 
+                'chatId': chatId,
+                'userId': userId,
+                'messages': []
+            }
+        );
+        console.log("Chat created:", response);
+        return response.$id;
+    } catch (error) {
+        console.error("Error creating chat:", error);
+        throw error;
+    }
 }
 
 export const getDocument = (chatId: string) => { 
@@ -190,4 +188,19 @@ export const cookieClick = async () => {
     }, {} as Record<string, string>);
     
     console.log("Parsed cookies:", cookies);
+}
+
+export const deleteDocument = async (documentId: string) => { 
+    console.log(documentId)
+    const promise = database.deleteDocument(
+        process.env.NEXT_PUBLIC_APPWRITE_DATABASE || '', 
+        process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || '', 
+        documentId     
+        )
+    promise.then(function(response) { 
+        console.log("sucesss")
+    }, function(error) { 
+        console.log("error")
+    })
+    
 }

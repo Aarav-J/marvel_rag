@@ -15,6 +15,8 @@ export default function Home() {
  const router = useRouter();  
  const userId = useStore((state) => state.userId);
  const setUserId = useStore((state) => state.setUserId);
+ const userName = useStore((state) => state.userName);
+ const setUserName = useStore((state) => state.setUserName);
  const setMessages = useStore((state) => state.setMessages);
  useEffect(() => {
    const initializeUser = async () => {
@@ -22,6 +24,7 @@ export default function Home() {
        const user = await getUser();
        if (user) {
          setUserId(user.$id);
+         setUserName(user.name);
        }
      } catch (error) {
        console.error('Failed to get user:', error);
@@ -34,6 +37,7 @@ export default function Home() {
  const handleLogout = async () => {
         await logoutUser();
         setUserId('');
+        setUserName('')
         setMessages([]); 
         router.push('/login');
     }
@@ -44,6 +48,7 @@ export default function Home() {
         console.log(user);
         if (user) {
           setUserId(user.$id);
+          setUserName(user.name);
         }
     } 
   return (
@@ -58,14 +63,25 @@ export default function Home() {
             </div>
             <span className="text-2xl font-normal text-marvel-red">Oracle</span>
           </div>
-          <div className="flex-1 flex justify-end items-center gap-2">
+          <div className="flex-1 flex justify-end items-center gap-4">
             {userId !== '' ? (
-              <button onClick={handleLogout}>Logout</button>
+              <>
+                <span className="text-sm font-medium text-white">{userName}</span>
+                <button 
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors duration-200"
+                >
+                  Logout
+                </button>
+              </>
             ) : (
-              <button onClick={() => router.push('/login')}>Login</button>
+              <button 
+                onClick={() => router.push('/login')}
+                className="px-4 py-2 bg-marvel-red text-white text-sm font-medium rounded-md hover:bg-red-700 transition-colors duration-200"
+              >
+                Login
+              </button>
             )}
-            <button onClick={handleGetUser}>Get user</button>
-            <CookieButton />
           </div>
         </div>
       </div>

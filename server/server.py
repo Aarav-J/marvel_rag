@@ -77,11 +77,33 @@ llm = ChatOpenAI(
     max_tokens=1000,
 )
 
+# Add query rewriting chain for handling context-dependent questions
+query_rewrite_prompt = ChatPromptTemplate.from_messages([
+    ("system", 
+     "Given the chat history and a follow-up question, rephrase the follow-up question "
+     "to be a standalone question that incorporates relevant context from the chat history. "
+     "Only include necessary context - don't make it overly long.\n\n"
+     "Examples:\n"
+     "History: 'Who is Spider-Man?' -> 'Peter Parker is Spider-Man'\n"
+     "Follow-up: 'What are his powers?' -> 'What are Spider-Man's/Peter Parker's powers?'\n\n"
+     "History: 'Who is the boss of Peter Parker?' -> 'J. Jonah Jameson'\n"
+     "Follow-up: 'Who is that?' -> 'Who is J. Jonah Jameson?'\n\n"
+     "History: 'Tell me about Iron Man' -> 'Tony Stark is Iron Man...'\n"
+     "Follow-up: 'What about his suit?' -> 'What about Iron Man's/Tony Stark's suit?'\n\n"
+     "If the follow-up question is already standalone, return it unchanged."),
+    MessagesPlaceholder("chat_history"),
+    ("human", "Follow-up question: {input}\n\nStandalone question:")
+])
+
+query_rewriter = query_rewrite_prompt | llm | StrOutputParser()
+
 prompt = ChatPromptTemplate.from_messages([
     ("system",
      "You are a precise, helpful assistant answering questions about Marvel content. "
-     "Prioritize the provided context and the running chat history to answer. "
-     "If the answer is not in the context, say you don't know and suggest the best next query.\n\n"
+     "Use the provided context from retrieval and the chat history to answer questions. "
+     "The context was retrieved using an enhanced query that incorporates conversation history "
+     "for better relevance.\n\n"
+     "If the answer is not in the context, say you don't know and suggest the best next query.\n"
      "Answer briefly but completely. If listing items, use concise bullets.\n"
      "Always cite specific sources with titles or ids when you reference context."),
     MessagesPlaceholder("chat_history"),
@@ -93,11 +115,51 @@ prompt = ChatPromptTemplate.from_messages([
 ])
 
 
+# Function to get standalone query for retrieval
+def get_standalone_query(x):
+    chat_history = x.get("chat_history", [])
+    original_query = x["input"]
+    
+    # If no history, use original query
+    if not chat_history:
+        print(f"No history - using original query: {original_query}")
+        return original_query
+    
+    # Check if query seems context-dependent (short, uses pronouns, etc.)
+    context_dependent_indicators = [
+        "who is that", "what is that", "tell me more", "what about", 
+        "how about", "and him", "and her", "his", "her", "their",
+        "it", "this", "these", "those", "they", "them"
+    ]
+    
+    is_context_dependent = (
+        len(original_query.split()) <= 4 or
+        any(indicator in original_query.lower() for indicator in context_dependent_indicators)
+    )
+    
+    if not is_context_dependent:
+        print(f"Query seems standalone - using original: {original_query}")
+        return original_query
+    
+    # Rewrite query with history context
+    try:
+        standalone_query = query_rewriter.invoke({
+            "input": original_query,
+            "chat_history": chat_history
+        })
+        print(f"Original query: {original_query}")
+        print(f"Rewritten query: {standalone_query}")
+        return standalone_query.strip()
+    except Exception as e:
+        print(f"Error rewriting query: {e}")
+        return original_query
+
 rag_chain = ( 
     {
         "input": lambda x: x["input"],  
         "chat_history": lambda x: x.get("chat_history", []),  
-        "context": lambda x: retriever.invoke(x["input"])  
+        "context": lambda x: retriever.invoke(get_standalone_query(x)),  # Use rewritten query for retrieval
+        "standalone_query": get_standalone_query  # For debugging
     }
     | prompt
     | llm

@@ -1,16 +1,33 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import useStore from '@/store/useStore';
 import { message } from '@/types';
 import { getUser } from '@/utils';
 import { logoutUser } from '@/utils';
 import { useRouter } from 'next/navigation';
+
 const Chatbot = () => {
-    
+    const messagesEndRef = useRef<HTMLDivElement>(null);
     const selectedChatId = useStore((state) => state.selectedChatId);
     const messages = useStore((state) => state.messages);
     const loading = useStore((state) => state.loading);
+    const loadingChatId = useStore((state) => state.loadingChatId);
     const router = useRouter(); 
+    
+    // Auto-scroll to bottom when messages change or loading starts/stops
+    useEffect(() => {
+        const scrollToBottom = () => {
+            messagesEndRef.current?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'end'
+            });
+        };
+        
+        // Small delay to ensure DOM is updated
+        const timeoutId = setTimeout(scrollToBottom, 100);
+        
+        return () => clearTimeout(timeoutId);
+    }, [messages, loading]); // Trigger when messages or loading state changes 
     
     return ( 
         <div className="border border-gray-600 bg-gray-800 shadow-md rounded-lg w-full h-full flex flex-col">
@@ -53,7 +70,7 @@ const Chatbot = () => {
                     }
                     
                     {
-                        loading && (
+                        loading && loadingChatId === selectedChatId && (
                             <div className="flex items-start gap-3">
                                 <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
                                     M
@@ -69,6 +86,9 @@ const Chatbot = () => {
                             </div>
                         )
                     }
+                    
+                    {/* Invisible element to scroll to */}
+                    <div ref={messagesEndRef} />
                     
                 </div>
                 )
