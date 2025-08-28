@@ -5,7 +5,7 @@ import { chat } from "./types";
 
 // API Base URL - use environment variable for production
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? (process.env.NEXT_PUBLIC_API_URL || 'https://marvel-rag.vercel.app/api')
+  ? (process.env.NEXT_PUBLIC_API_URL || 'https://marveloracle.vercel.app/api')
   : 'http://localhost:8000';
 
 export const query = (query: string, id: string) => { 
@@ -233,7 +233,7 @@ export const passwordReset = async (email: string) => {
     const account = new Account(client);
     try {
         const resetUrl = process.env.NODE_ENV === 'production' 
-            ? 'https://marvel-rag.vercel.app/reset-password'  // Replace with your actual domain
+            ? 'https://marveloracle.vercel.app/reset-password'  // Replace with your actual domain
             : 'http://localhost:3000/reset-password';
         await account.createRecovery(email, resetUrl);
         console.log("Password recovery email sent");
