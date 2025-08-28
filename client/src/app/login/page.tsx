@@ -4,10 +4,10 @@ import { useRouter } from 'next/navigation';
 import { getUser, listChats, loginUser, passwordReset } from '@/utils';
 import useStore from '@/store/useStore';
 import toast, { Toaster } from 'react-hot-toast';
-type Chat = { 
-  id: string, 
-  name: string
-}
+// type Chat = { 
+//   id: string, 
+//   name: string
+// }
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -141,7 +141,7 @@ export default function Login() {
         
         <div className="mt-4 text-center">
           <span className="text-sm text-gray-400">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <a href="/signup" className="text-red-400 hover:text-red-300">
               Sign up
             </a>

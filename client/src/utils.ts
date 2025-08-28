@@ -1,9 +1,15 @@
 import axios from "axios";
 import client, { database } from "./appwrite";
 import { ID, Query, Account} from "appwrite";
-import { chat, message } from "./types";
+import { chat } from "./types";
+
+// API Base URL - use environment variable for production
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+  ? (process.env.NEXT_PUBLIC_API_URL || 'https://marvel-rag.vercel.app/api')
+  : 'http://localhost:8000';
+
 export const query = (query: string, id: string) => { 
-    return axios.get('http://localhost:8000/query/', {
+    return axios.get(`${API_BASE_URL}/query/`, {
         headers: {
             'Query': query,
             'Session-Id': id
@@ -123,7 +129,7 @@ export const loginUser = async (email: string, password: string) => {
         const user = await account.get();
         
         // Set cookies via secure API route
-        const cookieResponse = await fetch('/api/auth/login', {
+        const cookieResponse = await fetch('/apif/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -163,7 +169,7 @@ export const logoutUser = async () => {
         console.log("Logout successful");
         
         // Clear cookies via secure API route
-        const cookieResponse = await fetch('/api/auth/logout', {
+        const cookieResponse = await fetch('/apif/auth/logout', {
             method: 'POST',
         });
         
@@ -215,9 +221,9 @@ export const deleteDocument = async (documentId: string) => {
         process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || '', 
         documentId     
         )
-    promise.then(function(response) { 
+    promise.then(function() { 
         console.log("sucesss")
-    }, function(error) { 
+    }, function() { 
         console.log("error")
     })
     
@@ -226,7 +232,10 @@ export const deleteDocument = async (documentId: string) => {
 export const passwordReset = async (email: string) => {
     const account = new Account(client);
     try {
-        await account.createRecovery(email, 'http://localhost:5173/reset-password');
+        const resetUrl = process.env.NODE_ENV === 'production' 
+            ? 'https://marvel-rag.vercel.app/reset-password'  // Replace with your actual domain
+            : 'http://localhost:3000/reset-password';
+        await account.createRecovery(email, resetUrl);
         console.log("Password recovery email sent");
     } catch (error) {
         console.error("Error sending password recovery email:", error);

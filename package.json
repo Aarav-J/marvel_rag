@@ -1,0 +1,17 @@
+{
+  "name": "marvel-rag",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:client": "cd client && npm run dev",
+    "dev:server": "cd server && python server.py",
+    "build": "cd client && npm run build",
+    "start": "cd client && npm run start",
+    "install:client": "cd client && npm install",
+    "deploy": "vercel --prod"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

@@ -1,15 +1,14 @@
 'use client';
 import React, { useEffect } from "react";
-import Image from "next/image";
+
 import Chatbot from "@/components/Chatbot";
 import Chatbar from "@/components/Chatbar";
 import History from "@/components/History";
 import NewConversationModal from "@/components/NewConversationModal";
-import { logoutUser, getUser, passwordReset} from '@/utils';
+import { logoutUser, getUser} from '@/utils';
 import { useRouter } from "next/navigation";
 import useStore from "@/store/useStore";
 
-import CookieButton from "@/components/button";
 
 export default function Home() {
  const router = useRouter();  
@@ -32,7 +31,7 @@ export default function Home() {
    };
    
    initializeUser();
- }, [setUserId]);
+ }, [setUserId, setUserName]);
 
  const handleLogout = async () => {
         await logoutUser();
@@ -41,16 +40,7 @@ export default function Home() {
         setMessages([]); 
         router.push('/login');
     }
-    const handleGetUser = async () => {
-        
-        console.log("fetching user...");
-        const user = await getUser();
-        console.log(user);
-        if (user) {
-          setUserId(user.$id);
-          setUserName(user.name);
-        }
-    } 
+  
   return (
     <div className="font-sans flex flex-col items-center justify-start h-screen gap-8 p-8">
       {/* Header Section */}

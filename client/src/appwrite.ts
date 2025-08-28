@@ -1,6 +1,6 @@
 import { Client, Databases, Account} from "appwrite"; 
 
-import { type Models } from "appwrite"
+
 
 const client: Client = new Client(); 
 console.log("Appwrite Endpoint:", process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT);

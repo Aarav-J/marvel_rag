@@ -1,10 +1,8 @@
 'use client'
 import React, { useEffect, useRef } from 'react';
 import useStore from '@/store/useStore';
-import { message } from '@/types';
-import { getUser } from '@/utils';
-import { logoutUser } from '@/utils';
-import { useRouter } from 'next/navigation';
+
+
 
 const Chatbot = () => {
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -12,7 +10,7 @@ const Chatbot = () => {
     const messages = useStore((state) => state.messages);
     const loading = useStore((state) => state.loading);
     const loadingChatId = useStore((state) => state.loadingChatId);
-    const router = useRouter(); 
+
     
     // Auto-scroll to bottom when messages change or loading starts/stops
     useEffect(() => {

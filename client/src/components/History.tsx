@@ -97,6 +97,7 @@ const History = () => {
     };
   }, [showMenu]);
   const onClick = async (chatId: string, chatName: string) => { 
+    console.log(chatName)
     setSelectedChatId(chatId)
     const document = await getDocument(chatId) as chat; 
     const messages = document['messages'] || []

@@ -12,7 +12,7 @@ const Chatbar = () => {
   const addMessage = useStore((state) => state.addMessage)
   const setLoading = useStore((state) => state.setLoading)
   const setLoadingChatId = useStore((state) => state.setLoadingChatId)
-  const loadingChatId = useStore((state) => state.loadingChatId)
+
   
   const onClick = () => { 
     if (selectedChatId && message.trim()) {

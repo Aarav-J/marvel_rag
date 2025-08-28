@@ -26,7 +26,14 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173"], 
+    allow_origins=[
+        "http://localhost:3000", 
+        "http://localhost:5173",
+        "https://*.vercel.app",
+        "https://marvel-rag.vercel.app",  # Replace with your actual domain
+        "https://marvel-rag-git-master.vercel.app",
+        "https://marvel-rag-aarav-j.vercel.app"
+    ], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -195,3 +202,16 @@ def query_marvel(query: str, session_id: str):
 async def get_query(query: Annotated[str, Header(alias="Query")], session_id: Annotated[str, Header(alias="Session-Id")]):
     response = query_marvel(query, session_id)
     return {"query": query, "response": response, "session_id": session_id}
+
+@app.get("/")
+async def root():
+    return {"message": "Marvel RAG API is running!", "status": "healthy"}
+
+# Handler for Vercel serverless deployment
+def handler(request):
+    return app(request)
+
+# For development
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

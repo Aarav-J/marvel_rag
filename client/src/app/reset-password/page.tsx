@@ -1,9 +1,9 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { updatePassword } from '@/utils'
 
-const ResetPassword = () => {
+const ResetPasswordForm = () => {
   const searchParams = useSearchParams()
   const router = useRouter()
   
@@ -90,9 +90,10 @@ const ResetPassword = () => {
         router.push('/login')
       }, 3000)
       
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Password reset error:', error)
-      setError(error.message || 'Failed to reset password. Please try again or request a new reset link.')
+      const errorMessage = error instanceof Error ? error.message : 'Failed to reset password. Please try again or request a new reset link.'
+      setError(errorMessage)
     } finally {
       setLoading(false)
     }
@@ -239,10 +240,26 @@ const ResetPassword = () => {
             <li>• One uppercase letter (A-Z)</li>
             <li>• One lowercase letter (a-z)</li>
             <li>• One number (0-9)</li>
+            <li>• One special character (@$!%*?&)</li>
           </ul>
         </div>
       </div>
     </div>
+  )
+}
+
+const ResetPassword = () => {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
+        <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-lg p-8 text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <p className="text-gray-300">Loading...</p>
+        </div>
+      </div>
+    }>
+      <ResetPasswordForm />
+    </Suspense>
   )
 }
 
