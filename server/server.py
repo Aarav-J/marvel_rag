@@ -291,8 +291,8 @@ async def get_query(
         logger.error(f"Error processing query: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
-# Create the Mangum handler for Vercel
-handler = Mangum(app)
+# Export the app directly - Vercel will handle the ASGI interface
+# This is the correct way for Vercel Python runtime
 
 # For development
 if __name__ == "__main__":
