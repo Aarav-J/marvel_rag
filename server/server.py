@@ -21,9 +21,11 @@ app.add_middleware(
         "https://*.vercel.app",
         "https://marvel-rag.vercel.app",
         "https://marvel-rag-git-master.vercel.app",
-        "https://marvel-rag-aarav-j.vercel.app",  # Added missing comma
+        "https://marvel-rag-aarav-j.vercel.app",
         "https://marveloracle.vercel.app",
-    ], 
+        "https://marveloracle-aarav-jains-projects.vercel.app",
+        "https://marveloracle-k4vszpm29-aarav-jains-projects.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -245,8 +247,8 @@ async def get_query(
         raise HTTPException(status_code=500, detail=str(e))
 
 # Handler for Vercel serverless deployment
-def handler(request):
-    return app(request)
+from mangum import Mangum
+handler = Mangum(app)
 
 # For development
 if __name__ == "__main__":
