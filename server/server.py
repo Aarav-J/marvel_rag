@@ -228,15 +228,16 @@ async def startup_event():
     initialize_components()
 
 @app.get("/")
+@app.get("")
 async def root():
     return {
         "message": "Marvel RAG API is running!", 
-        "status": "healthy" if not app.state.initialization_error else "error",
+        "status": "healthy" if not hasattr(app.state, 'initialization_error') or not app.state.initialization_error else "error",
         "env_check": {
             "openai_key_set": bool(os.getenv("OPENAI_API_KEY")),
             "pinecone_key_set": bool(os.getenv("PINECONE_API_KEY"))
         },
-        "initialization_error": app.state.initialization_error
+        "initialization_error": getattr(app.state, 'initialization_error', None)
     }
 
 @app.get("/health")
