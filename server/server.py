@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import Header
 from typing import Annotated, Dict
-from mangum import Mangum
+
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
