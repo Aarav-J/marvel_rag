@@ -271,6 +271,7 @@ async def health_check():
         }
 
 @app.get("/query/")
+@app.get("/query")
 async def get_query(
     query: Annotated[str, Header(alias="Query")], 
     session_id: Annotated[str, Header(alias="Session-Id")]
@@ -290,6 +291,16 @@ async def get_query(
     except Exception as e:
         logger.error(f"Error processing query: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/auth/login")
+async def auth_login():
+    # Simple pass-through since Appwrite handles authentication
+    return {"status": "ok", "message": "Authentication handled by Appwrite"}
+
+@app.post("/auth/logout")
+async def auth_logout():
+    # Simple pass-through since Appwrite handles authentication
+    return {"status": "ok", "message": "Logout handled by Appwrite"}
 
 # Export the app directly - Vercel will handle the ASGI interface
 # This is the correct way for Vercel Python runtime
