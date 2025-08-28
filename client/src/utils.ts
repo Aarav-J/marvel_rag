@@ -129,7 +129,7 @@ export const loginUser = async (email: string, password: string) => {
         const user = await account.get();
         
         // Set cookies via secure API route
-        const cookieResponse = await fetch('/apif/auth/login', {
+        const cookieResponse = await fetch('/api/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -169,7 +169,7 @@ export const logoutUser = async () => {
         console.log("Logout successful");
         
         // Clear cookies via secure API route
-        const cookieResponse = await fetch('/apif/auth/logout', {
+        const cookieResponse = await fetch('/api/auth/logout', {
             method: 'POST',
         });
         
