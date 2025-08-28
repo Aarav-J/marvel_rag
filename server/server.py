@@ -33,6 +33,7 @@ app.add_middleware(
         "https://marvel-rag.vercel.app",  # Replace with your actual domain
         "https://marvel-rag-git-master.vercel.app",
         "https://marvel-rag-aarav-j.vercel.app"
+        "https://marveloracle.vercel.app",
     ], 
     allow_credentials=True,
     allow_methods=["*"],
