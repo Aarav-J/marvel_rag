@@ -9,7 +9,7 @@ const API_BASE_URL = process.env.NODE_ENV === 'production'
   : 'http://localhost:8000';
 
 export const query = (query: string, id: string) => { 
-    return axios.get(`${API_BASE_URL}/query/`, {
+    return axios.get(`${API_BASE_URL}/query`, {
         headers: {
             'Query': query,
             'Session-Id': id

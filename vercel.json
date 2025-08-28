@@ -11,11 +11,22 @@
       "config": {
         "maxLambdaSize": "50mb"
       }
+    },
+    {
+      "src": "api/query.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/query",
+      "dest": "/api/query.py"
+    },
+    {
+      "src": "/api/?",
       "dest": "/api/index.py"
     },
     {
