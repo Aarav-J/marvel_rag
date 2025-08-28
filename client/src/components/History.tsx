@@ -1,7 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import useStore from '@/store/useStore'
-import { deleteDocument, getDocument, listChats } from '@/utils'
+import { deleteDocument, getDocument, listChats, updateChatName } from '@/utils'
 import { chat } from '@/types'
 import ChatContextMenu from './ChatContextMenu'
 
@@ -17,6 +17,8 @@ const History = () => {
   const setNewModalOpen = useStore((state) => state.setNewModalOpen)
   const setSelectedChatId = useStore((state) => state.setSelectedChatId)
   const [deleteDocumentId, setDeleteDocumentId] = useState('')
+  const [editingChatId, setEditingChatId] = useState<string | null>(null)
+  const [editingValue, setEditingValue] = useState('')
   const handleDelete = async () => { 
     deleteDocument(deleteDocumentId).then(() => { 
       setChats(chats.filter(chat => chat.id !== deleteDocumentId))
@@ -27,6 +29,47 @@ const History = () => {
       }
       setDeleteDocumentId('')
     })
+  }
+
+  const handleEditStart = () => {
+    const chatToEdit = chats.find(chat => chat.id === deleteDocumentId)
+    if (chatToEdit) {
+      setEditingChatId(deleteDocumentId)
+      setEditingValue(chatToEdit.name)
+      setShowMenu(false)
+    }
+  }
+
+  const handleEditSave = async () => {
+    if (editingChatId && editingValue.trim()) {
+      try {
+        await updateChatName(editingChatId, editingValue.trim())
+        // Update local state
+        setChats(chats.map(chat => 
+          chat.id === editingChatId 
+            ? { ...chat, name: editingValue.trim() }
+            : chat
+        ))
+        setEditingChatId(null)
+        setEditingValue('')
+      } catch (error) {
+        console.error('Failed to update chat name:', error)
+        // Optionally show error message to user
+      }
+    }
+  }
+
+  const handleEditCancel = () => {
+    setEditingChatId(null)
+    setEditingValue('')
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleEditSave()
+    } else if (e.key === 'Escape') {
+      handleEditCancel()
+    }
   }
   useEffect(() => { 
     if (userId) {
@@ -55,7 +98,7 @@ const History = () => {
   }, [showMenu]);
   const onClick = async (chatId: string, chatName: string) => { 
     setSelectedChatId(chatId)
-    const document = await getDocument(chatName) as chat; 
+    const document = await getDocument(chatId) as chat; 
     const messages = document['messages'] || []
     console.log("Messages:", messages)
     setMessages(messages.map(message => JSON.parse(message as unknown as string)))
@@ -63,7 +106,7 @@ const History = () => {
   }
   return (
     <>
-    {showMenu && <ChatContextMenu x={x} y={y} onClose={() => setShowMenu(false)} onDelete={handleDelete} onEditName={() => alert(deleteDocumentId)}/>}
+    {showMenu && <ChatContextMenu x={x} y={y} onClose={() => setShowMenu(false)} onDelete={handleDelete} onEditName={handleEditStart}/>}
     <div 
     className='border border-gray-600 bg-gray-800 text-white shadow-md rounded-lg p-4 w-full h-full overflow-y-scroll custom-scrollbar overflow-x-hidden'>
       <div className="flex items-center justify-between mb-4">
@@ -73,15 +116,35 @@ const History = () => {
       <div className="space-y-2">
 
         {chats.map((chat) => ( 
-            <div onContextMenu={(e) => {
-               e.preventDefault()
+            <div 
+              onContextMenu={(e) => {
+                e.preventDefault()
                 setX(e.pageX)
                 setY(e.pageY)
                 setShowMenu(true)
                 setDeleteDocumentId(chat.id)
               }} 
-      className={`text-white p-3 rounded cursor-pointer ${selectedChatId === chat.id ? 'bg-red-600' : 'bg-gray-700'} overflow-x-clip`} key={chat.id} onClick={() => onClick(chat.id, chat.name)}>
-              {chat.name || 'Untitled Chat'}
+              className={`text-white p-3 rounded ${selectedChatId === chat.id ? 'bg-red-600' : 'bg-gray-700'} overflow-x-clip`} 
+              key={chat.id} 
+            >
+              {editingChatId === chat.id ? (
+                <input
+                  type="text"
+                  value={editingValue}
+                  onChange={(e) => setEditingValue(e.target.value)}
+                  onKeyDown={handleKeyPress}
+                  onBlur={handleEditSave}
+                  className="w-full bg-transparent border-none outline-none text-white"
+                  autoFocus
+                />
+              ) : (
+                <div 
+                  className="cursor-pointer"
+                  onClick={() => onClick(chat.id, chat.name)}
+                >
+                  {chat.name || 'Untitled Chat'}
+                </div>
+              )}
             </div>
         ))}
       </div>

@@ -5,7 +5,7 @@ import Chatbot from "@/components/Chatbot";
 import Chatbar from "@/components/Chatbar";
 import History from "@/components/History";
 import NewConversationModal from "@/components/NewConversationModal";
-import { logoutUser, getUser} from '@/utils';
+import { logoutUser, getUser, passwordReset} from '@/utils';
 import { useRouter } from "next/navigation";
 import useStore from "@/store/useStore";
 
@@ -64,6 +64,7 @@ export default function Home() {
             <span className="text-2xl font-normal text-marvel-red">Oracle</span>
           </div>
           <div className="flex-1 flex justify-end items-center gap-4">
+            
             {userId !== '' ? (
               <>
                 <span className="text-sm font-medium text-white">{userName}</span>

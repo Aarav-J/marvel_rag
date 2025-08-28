@@ -1,8 +1,9 @@
 'use client'
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { getUser, listChats, loginUser } from '@/utils';
+import { getUser, listChats, loginUser, passwordReset } from '@/utils';
 import useStore from '@/store/useStore';
+import toast, { Toaster } from 'react-hot-toast';
 type Chat = { 
   id: string, 
   name: string
@@ -43,6 +44,7 @@ export default function Login() {
     } catch (error) {
       console.error("Login failed:", error);
       setIsLoading(false);
+      toast.error("Login failed. Please check your credentials.");
       return;
     }
     
@@ -52,6 +54,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-8">
+      <Toaster />
       {/* Header */}
       <div className="mb-8">
         <div className="flex flex-row items-center justify-center">
@@ -120,9 +123,20 @@ export default function Login() {
 
         {/* Additional Links */}
         <div className="mt-6 text-center">
-          <a href="#" className="text-sm text-red-400 hover:text-red-300">
+          <span onClick={async () => { 
+            console.log("Password reset requested for:", email);
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+            if (emailRegex.test(email)) {
+              await passwordReset(email);
+              toast.success("Password reset email sent!");
+              console.log("Password reset email sent");
+            } else {
+              console.error("Invalid email format");
+              toast.error("Please enter a valid email address");
+            }
+          }}className="text-sm text-red-400 hover:text-red-300">
             Forgot your password?
-          </a>
+          </span>
         </div>
         
         <div className="mt-4 text-center">

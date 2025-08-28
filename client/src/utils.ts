@@ -48,7 +48,7 @@ export const getDocument = (chatId: string) => {
         process.env.NEXT_PUBLIC_APPWRITE_DATABASE || "",
         process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || "", 
         [
-            Query.equal('chatId', chatId)
+            Query.equal('$id', chatId)
         ]
     ).then(function(response) { 
         console.log("Get Messages Response:", response);
@@ -190,6 +190,24 @@ export const cookieClick = async () => {
     console.log("Parsed cookies:", cookies);
 }
 
+export const updateChatName = async (chatId: string, newName: string) => {
+    return database.updateDocument(
+        process.env.NEXT_PUBLIC_APPWRITE_DATABASE || "",
+        process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || "", 
+        chatId,
+        {
+            'chatId': newName
+        }
+    ).then(function(response) { 
+        console.log("Chat name updated successfully:", response)
+        return response
+    }, 
+    function(error) { 
+        console.log("Error updating chat name:", error);
+        throw error
+    })
+}
+
 export const deleteDocument = async (documentId: string) => { 
     console.log(documentId)
     const promise = database.deleteDocument(
@@ -203,4 +221,26 @@ export const deleteDocument = async (documentId: string) => {
         console.log("error")
     })
     
+}
+
+export const passwordReset = async (email: string) => {
+    const account = new Account(client);
+    try {
+        await account.createRecovery(email, 'http://localhost:5173/reset-password');
+        console.log("Password recovery email sent");
+    } catch (error) {
+        console.error("Error sending password recovery email:", error);
+        throw error;
+    }
+}
+
+export const updatePassword = async (userId: string, secret: string, newPassword: string) => {
+    const account = new Account(client);
+    try {
+        await account.updateRecovery(userId, secret, newPassword);
+        console.log("Password updated successfully");
+    } catch (error) {
+        console.error("Error updating password:", error);
+        throw error;
+    }
 }

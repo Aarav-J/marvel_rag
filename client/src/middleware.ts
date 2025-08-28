@@ -5,9 +5,9 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
   // Define public routes that don't require authentication
-  const publicRoutes = ['/login', '/signup'];
+  const publicRoutes = ['/login', '/signup', '/check', '/reset-password'];
   const isPublicRoute = publicRoutes.includes(pathname);
-  
+
   // Get all cookies
   const sessionCookies = request.cookies.getAll();
   
