@@ -16,13 +16,17 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  // Remove rewrites for production - let Vercel handle API routing
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'}/:path*`,
-      },
-    ]
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/api/:path*',
+          destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5173'}/:path*`,
+        },
+      ]
+    }
+    return []
   },
 };
 
