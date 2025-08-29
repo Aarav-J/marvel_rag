@@ -142,6 +142,15 @@ export const loginUser = async (email: string, password: string) => {
         
         if (!cookieResponse.ok) {
             console.error('Failed to set authentication cookies');
+        } else {
+            console.log('✅ Authentication cookies set successfully');
+            
+            // Log debug headers
+            const debugHeaders = {
+                'x-cookie-set-env': cookieResponse.headers.get('x-cookie-set-env'),
+                'x-cookie-set-secure': cookieResponse.headers.get('x-cookie-set-secure'),
+            };
+            console.log('🐛 Cookie debug headers:', debugHeaders);
         }
         
         return response;
@@ -175,6 +184,14 @@ export const logoutUser = async () => {
         
         if (!cookieResponse.ok) {
             console.error('Failed to clear authentication cookies');
+        } else {
+            console.log('✅ Authentication cookies cleared successfully');
+            
+            // Log debug headers
+            const debugHeaders = {
+                'x-cookie-clear-env': cookieResponse.headers.get('x-cookie-clear-env'),
+            };
+            console.log('🐛 Cookie clear debug headers:', debugHeaders);
         }
         
     } catch (error) {

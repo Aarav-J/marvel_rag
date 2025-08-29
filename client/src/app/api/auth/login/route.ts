@@ -6,30 +6,31 @@ export async function POST(request: NextRequest) {
     
     const response = NextResponse.json({ success: true });
     
-    // Set secure HTTP-only cookies
-    response.cookies.set('auth_token', sessionId, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+    // Production vs Development cookie settings
+    const isProduction = process.env.NODE_ENV === 'production';
+    
+    const cookieOptions = {
+      httpOnly: false, // Changed to false so middleware can read them
+      secure: isProduction,
+      sameSite: 'lax' as const, // Changed from 'strict' for better Vercel compatibility
       maxAge: 60 * 60 * 24 * 7, // 7 days
       path: '/',
+    };
+    
+    console.log('🍪 Setting cookies with options:', {
+      isProduction,
+      secure: cookieOptions.secure,
+      sameSite: cookieOptions.sameSite
     });
     
-    response.cookies.set('user_authenticated', 'true', {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
-      maxAge: 60 * 60 * 24 * 7, // 7 days
-      path: '/',
-    });
+    // Set authentication cookies
+    response.cookies.set('auth_token', sessionId, cookieOptions);
+    response.cookies.set('user_authenticated', 'true', cookieOptions);
+    response.cookies.set('user_id', userId, cookieOptions);
     
-    response.cookies.set('user_id', userId, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
-      maxAge: 60 * 60 * 24 * 7, // 7 days
-      path: '/',
-    });
+    // Add debug headers
+    response.headers.set('x-cookie-set-env', isProduction ? 'production' : 'development');
+    response.headers.set('x-cookie-set-secure', cookieOptions.secure.toString());
     
     return response;
   } catch (error) {
