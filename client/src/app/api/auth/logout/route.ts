@@ -21,7 +21,7 @@ export async function POST() {
       sameSite: cookieOptions.sameSite
     });
     
-    // Clear authentication cookies by setting them to expire
+    // Clear authentication cookies by setting them to expire 
     response.cookies.set('auth_token', '', cookieOptions);
     response.cookies.set('user_authenticated', '', cookieOptions);
     response.cookies.set('user_id', '', cookieOptions);

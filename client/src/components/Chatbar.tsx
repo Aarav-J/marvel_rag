@@ -21,12 +21,12 @@ const Chatbar = () => {
       const chatName = selectedChat?.name || selectedChatId;
       
       addMessage( {'role': 'user', 'content': message} )
-      addMessageToChat( chatName, {role: 'user', content: message, })
+      addMessageToChat( selectedChatId, {role: 'user', content: message, })
       setLoading(true)
       setLoadingChatId(selectedChatId);
-      query(message, chatName).then((response: queryResponse) => {
+      query(message, selectedChatId).then((response: queryResponse) => {
         addMessage( {'role': 'assistant', 'content': response['response']} )
-        addMessageToChat( chatName, {role: 'assistant', content: response['response'], })
+        addMessageToChat( selectedChatId, {role: 'assistant', content: response['response'], })
       }).finally(() => {
         setLoading(false)
         setLoadingChatId(null);
