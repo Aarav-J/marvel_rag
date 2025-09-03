@@ -101,21 +101,21 @@ const ResetPasswordForm = () => {
 
   if (success) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-        <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-lg p-8 text-center">
-          <div className="mb-6">
-            <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-lg p-4 sm:p-8 text-center">
+          <div className="mb-4 sm:mb-6">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-2">Password Reset Successful!</h2>
-            <p className="text-gray-300 mb-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Password Reset Successful!</h2>
+            <p className="text-gray-300 mb-4 text-sm sm:text-base">
               Your password has been successfully reset. You will be redirected to the login page in a few seconds.
             </p>
             <button
               onClick={() => router.push('/login')}
-              className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
+              className="bg-red-600 hover:bg-red-700 text-white font-medium py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg transition duration-200 text-sm sm:text-base"
             >
               Go to Login
             </button>
@@ -126,32 +126,32 @@ const ResetPasswordForm = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-      <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-lg p-8">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold text-white mb-2">Reset Your Password</h2>
-          <p className="text-gray-300">Enter your new password below</p>
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-lg p-4 sm:p-8">
+        <div className="text-center mb-4 sm:mb-8">
+          <h2 className="text-xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">Reset Your Password</h2>
+          <p className="text-gray-300 text-sm sm:text-base">Enter your new password below</p>
         </div>
 
         {(!secret || !userId) ? (
           <div className="text-center">
-            <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </div>
-            <p className="text-red-400 mb-4">Invalid or expired reset link</p>
+            <p className="text-red-400 mb-4 text-sm sm:text-base">Invalid or expired reset link</p>
             <button
               onClick={() => router.push('/login')}
-              className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
+              className="bg-red-600 hover:bg-red-700 text-white font-medium py-1.5 sm:py-2 px-3 sm:px-4 rounded-lg transition duration-200 text-sm sm:text-base"
             >
               Back to Login
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <div>
-              <label htmlFor="newPassword" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="newPassword" className="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">
                 New Password
               </label>
               <input
@@ -161,13 +161,13 @@ const ResetPasswordForm = () => {
                 value={formData.newPassword}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="w-full px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-700 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 placeholder="Enter your new password"
               />
             </div>
 
             <div>
-              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="confirmPassword" className="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">
                 Confirm New Password
               </label>
               <input
@@ -177,7 +177,7 @@ const ResetPasswordForm = () => {
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="w-full px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-700 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 placeholder="Confirm your new password"
               />
             </div>
@@ -251,10 +251,10 @@ const ResetPasswordForm = () => {
 const ResetPassword = () => {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-        <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-lg p-8 text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
-          <p className="text-gray-300">Loading...</p>
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+        <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-lg p-4 sm:p-8 text-center">
+          <div className="animate-spin rounded-full h-10 w-10 sm:h-12 sm:w-12 border-b-2 border-red-600 mx-auto mb-3 sm:mb-4"></div>
+          <p className="text-gray-300 text-sm sm:text-base">Loading...</p>
         </div>
       </div>
     }>

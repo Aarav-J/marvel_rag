@@ -109,12 +109,12 @@ const History = () => {
     <>
     {showMenu && <ChatContextMenu x={x} y={y} onClose={() => setShowMenu(false)} onDelete={handleDelete} onEditName={handleEditStart}/>}
     <div 
-    className='border border-gray-600 bg-gray-800 text-white shadow-md rounded-lg p-4 w-full h-full overflow-y-scroll custom-scrollbar overflow-x-hidden'>
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-lg font-semibold">Timelines</h3>
+    className='border border-gray-600 bg-gray-800 text-white shadow-md rounded-lg p-2 sm:p-4 w-full h-full overflow-y-auto custom-scrollbar overflow-x-hidden'>
+      <div className="flex items-center justify-between mb-2 sm:mb-4">
+        <h3 className="text-base sm:text-lg font-semibold">Timelines</h3>
         <button className="bg-red-600 text-white text-xs px-2 py-1 rounded cursor-pointer" onClick={() => {setNewModalOpen(true)}}>New</button>
       </div>
-      <div className="space-y-2">
+      <div className="space-y-1 sm:space-y-2">
 
         {chats.map((chat) => ( 
             <div 
@@ -125,7 +125,7 @@ const History = () => {
                 setShowMenu(true)
                 setDeleteDocumentId(chat.id)
               }} 
-              className={`text-white p-3 rounded ${selectedChatId === chat.id ? 'bg-red-600' : 'bg-gray-700'} overflow-x-clip`} 
+              className={`text-white p-2 sm:p-3 rounded text-sm sm:text-base ${selectedChatId === chat.id ? 'bg-red-600' : 'bg-gray-700'} overflow-x-clip`} 
               key={chat.id} 
             >
               {editingChatId === chat.id ? (

@@ -30,7 +30,7 @@ const Chatbot = () => {
     return ( 
         <div className="border border-gray-600 bg-gray-800 shadow-md rounded-lg w-full h-full flex flex-col">
             
-            <div className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar p-6">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar p-2 sm:p-4 md:p-6">
                 {
                     !selectedChatId ? ( 
                         <span className="text-gray-500">Select a timeline to start chatting!</span>
@@ -40,22 +40,22 @@ const Chatbot = () => {
 
                         {
                         messages.map((message, index) => (
-                            <div key={index} className={`flex items-start gap-3 ${message.role === 'user' ? 'justify-end' : ''}`}>
+                            <div key={index} className={`flex items-start gap-2 sm:gap-3 ${message.role === 'user' ? 'justify-end' : ''}`}>
                                 {message.role === 'user' ? (
                                     <>
-                                        <div className="bg-red-600 text-white p-3 rounded-lg max-w-md">
+                                        <div className="bg-red-600 text-white p-2 sm:p-3 rounded-lg max-w-[200px] sm:max-w-[300px] md:max-w-md text-xs sm:text-sm md:text-base">
                                             {message.content}
                                         </div>
-                                        <div className="bg-gray-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                                        <div className="bg-gray-600 text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center text-xs sm:text-sm font-bold">
                                     You
                                         </div>
                                     </>) : 
                                     ( 
                                         <>
-                                            <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                                            <div className="bg-red-600 text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center text-xs sm:text-sm font-bold">
                                                 M
                                             </div>
-                                            <div className="bg-gray-700 text-white p-3 rounded-lg max-w-md">
+                                            <div className="bg-gray-700 text-white p-2 sm:p-3 rounded-lg max-w-[200px] sm:max-w-[300px] md:max-w-md text-xs sm:text-sm md:text-base">
                                                 {message.content}
                                             </div>
                                         </>
@@ -69,17 +69,17 @@ const Chatbot = () => {
                     
                     {
                         loading && loadingChatId === selectedChatId && (
-                            <div className="flex items-start gap-3">
-                                <div className="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
+                            <div className="flex items-start gap-2 sm:gap-3">
+                                <div className="bg-red-600 text-white rounded-full w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center text-xs sm:text-sm font-bold">
                                     M
                                 </div>
-                                <div className="bg-gray-700 text-white p-3 rounded-lg max-w-md flex items-center gap-2">
+                                <div className="bg-gray-700 text-white p-2 sm:p-3 rounded-lg max-w-[200px] sm:max-w-[300px] md:max-w-md flex items-center gap-1 sm:gap-2">
                                     <div className="flex gap-1">
-                                        <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                                        <div className="w-2 h-2 bg-white rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
-                                        <div className="w-2 h-2 bg-white rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse"></div>
+                                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                                        <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
                                     </div>
-                                    <span className="text-sm">Thinking...</span>
+                                    <span className="text-xs sm:text-sm">Thinking...</span>
                                 </div>
                             </div>
                         )

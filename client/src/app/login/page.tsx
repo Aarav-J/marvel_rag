@@ -53,22 +53,22 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-8">
+    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4 sm:p-8">
       <Toaster />
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <div className="flex flex-row items-center justify-center">
-          <div className="px-6 py-2 bg-marvel-red flex justify-center items-center rounded-sm shadow-md mr-4">
-            <span className="text-2xl font-bold tracking-widest text-white">MARVEL</span>
+          <div className="px-3 sm:px-6 py-1 sm:py-2 bg-marvel-red flex justify-center items-center rounded-sm shadow-md mr-2 sm:mr-4">
+            <span className="text-xl sm:text-2xl font-bold tracking-widest text-white">MARVEL</span>
           </div>
-          <span className="text-2xl font-normal text-marvel-red">Oracle</span>
+          <span className="text-xl sm:text-2xl font-normal text-marvel-red">Oracle</span>
         </div>
-        <p className="text-gray-400 text-center mt-4">Sign in to access your timeline</p>
+        <p className="text-gray-400 text-center mt-3 sm:mt-4 text-sm sm:text-base">Sign in to access your timeline</p>
       </div>
 
       {/* Login Form */}
-      <div className="bg-gray-800 border border-gray-600 rounded-lg shadow-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-white mb-6 text-center">Welcome Back</h2>
+      <div className="bg-gray-800 border border-gray-600 rounded-lg shadow-lg p-4 sm:p-8 w-full max-w-md">
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">Welcome Back</h2>
         
         <div className="space-y-6">
           {/* Email Field */}

@@ -8,7 +8,8 @@ type ChatContextMenuProps = {
   onDelete: () => void;
 };
 
-const MENU_WIDTH = 200;
+// Responsive menu width - smaller on mobile
+const MENU_WIDTH = typeof window !== 'undefined' ? (window.innerWidth < 640 ? 160 : 200) : 200;
 const MENU_HEIGHT = 98; // ~2 items + padding
 
 const ChatContextMenu =  ({
@@ -105,7 +106,7 @@ const ChatContextMenu =  ({
               }}
               onMouseEnter={() => setFocusIdx(idx)}
               className={[
-                "group flex w-full items-center gap-2 rounded-lg px-3 py-2 text-sm",
+                "group flex w-full items-center gap-1 sm:gap-2 rounded-lg px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm",
                 "transition-colors duration-100 outline-none",
                 idx === focusIdx ? "bg-slate-700/60" : "hover:bg-slate-700/50",
                 item.destructive
@@ -115,7 +116,7 @@ const ChatContextMenu =  ({
             >
               {item.id === "edit" ? (
                 // Pencil icon
-                <svg width="16" height="16" viewBox="0 0 24 24" className="opacity-90">
+                <svg width="14" height="14" viewBox="0 0 24 24" className="opacity-90">
                   <path
                     d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"
                     fill="currentColor"
@@ -123,7 +124,7 @@ const ChatContextMenu =  ({
                 </svg>
               ) : (
                 // Trash icon
-                <svg width="16" height="16" viewBox="0 0 24 24" className="opacity-90">
+                <svg width="14" height="14" viewBox="0 0 24 24" className="opacity-90">
                   <path
                     d="M9 3h6l1 2h4v2H4V5h4l1-2zm1 7h2v8h-2v-8zm4 0h2v8h-2v-8zM7 10h2v8H7v-8z"
                     fill="currentColor"
@@ -134,7 +135,7 @@ const ChatContextMenu =  ({
                 {item.label}
               </span>
               {item.destructive && (
-                <span className="ml-auto rounded-md border border-rose-400/30 bg-rose-500/10 px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-rose-300">
+                <span className="ml-auto rounded-md border border-rose-400/30 bg-rose-500/10 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[10px] uppercase tracking-wider text-rose-300 hidden sm:inline-block">
                   Dangerous
                 </span>
               )}

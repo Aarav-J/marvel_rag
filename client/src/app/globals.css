@@ -6,7 +6,8 @@
   --color: #DC2625; 
 }
 
-@theme inline {
+/* Theme variables */
+:root {
   --color-marvel-red: var(--color);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -18,6 +19,25 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+/* Add some responsive utility classes */
+html {
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 640px) {
+  button, 
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 44px;
+  }
+
+  a, button {
+    padding: 0.5rem;
   }
 }
 

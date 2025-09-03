@@ -38,27 +38,27 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-8">
+    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4 sm:p-8">
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-6 sm:mb-8">
         <div className="flex flex-row items-center justify-center">
-          <div className="px-6 py-2 bg-marvel-red flex justify-center items-center rounded-sm shadow-md mr-4">
-            <span className="text-2xl font-bold tracking-widest text-white">MARVEL</span>
+          <div className="px-3 sm:px-6 py-1 sm:py-2 bg-marvel-red flex justify-center items-center rounded-sm shadow-md mr-2 sm:mr-4">
+            <span className="text-xl sm:text-2xl font-bold tracking-widest text-white">MARVEL</span>
           </div>
-          <span className="text-2xl font-normal text-marvel-red">Oracle</span>
+          <span className="text-xl sm:text-2xl font-normal text-marvel-red">Oracle</span>
         </div>
-        <p className="text-gray-400 text-center mt-4">Create your account to explore the multiverse</p>
+        <p className="text-gray-400 text-center mt-3 sm:mt-4 text-sm sm:text-base">Create your account to explore the multiverse</p>
       </div>
 
       {/* Signup Form */}
-      <div className="bg-gray-800 border border-gray-600 rounded-lg shadow-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-white mb-6 text-center">Join the Oracle</h2>
+      <div className="bg-gray-800 border border-gray-600 rounded-lg shadow-lg p-4 sm:p-8 w-full max-w-md">
+        <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6 text-center">Join the Oracle</h2>
         
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
           {/* Name Fields */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="firstName" className="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">
                 First Name
               </label>
               <input
@@ -66,13 +66,13 @@ export default function Signup() {
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                className="w-full px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-700 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
                 placeholder="First name"
                 required
               />
             </div>
             <div>
-              <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="lastName" className="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">
                 Last Name
               </label>
               <input
@@ -80,7 +80,7 @@ export default function Signup() {
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+                className="w-full px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-700 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
                 placeholder="Last name"
                 required
               />
@@ -89,7 +89,7 @@ export default function Signup() {
 
           {/* Email Field */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">
               Email
             </label>
             <input
@@ -97,7 +97,7 @@ export default function Signup() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+              className="w-full px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-700 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
               placeholder="Enter your email"
               required
             />
@@ -105,7 +105,7 @@ export default function Signup() {
 
           {/* Password Field */}
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="password" className="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">
               Password
             </label>
             <input
@@ -113,7 +113,7 @@ export default function Signup() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+              className="w-full px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-700 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
               placeholder="Create a password"
               required
             />
@@ -121,7 +121,7 @@ export default function Signup() {
 
           {/* Confirm Password Field */}
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-300 mb-2">
+            <label htmlFor="confirmPassword" className="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">
               Confirm Password
             </label>
             <input
@@ -129,7 +129,7 @@ export default function Signup() {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
+              className="w-full px-2 sm:px-3 py-1.5 sm:py-2 bg-gray-700 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-600 focus:border-transparent"
               placeholder="Confirm your password"
               required
             />
