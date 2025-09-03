@@ -15,7 +15,7 @@ export async function POST() {
       path: '/',
     };
     
-    console.log('🗑️ Clearing cookies with options:', {
+    //'🗑️ Clearing cookies with options:', {
       isProduction,
       secure: cookieOptions.secure,
       sameSite: cookieOptions.sameSite

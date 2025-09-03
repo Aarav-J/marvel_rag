@@ -26,9 +26,9 @@ export const query = (query: string, id: string) => {
 
 
 export const createChat = async (chatId: string, userId: string) => { 
-    console.log("Creating chat with ID:", chatId);
-    console.log("Using Database ID:", process.env.NEXT_PUBLIC_APPWRITE_DATABASE);
-    console.log("Using Collection ID:", process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION);
+    // console.log("Creating chat with ID:", chatId);
+    // console.log("Using Database ID:", process.env.NEXT_PUBLIC_APPWRITE_DATABASE);
+    // console.log("Using Collection ID:", process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION);
     
     try {
         const response = await database.createDocument(
@@ -41,7 +41,7 @@ export const createChat = async (chatId: string, userId: string) => {
                 'messages': []
             }
         );
-        console.log("Chat created:", response);
+        // console.log("Chat created:", response);
         return response.$id;
     } catch (error) {
         console.error("Error creating chat:", error);
@@ -57,7 +57,7 @@ export const getDocument = (chatId: string) => {
             Query.equal('$id', chatId)
         ]
     ).then(function(response) { 
-        console.log("Get Messages Response:", response);
+        // console.log("Get Messages Response:", response);
         if (response.documents.length > 0) {
             return response.documents[0]
         } else {
@@ -65,7 +65,7 @@ export const getDocument = (chatId: string) => {
         }
     }, 
     function(error) { 
-        console.log(error);
+        // console.log(error);
         return [];
     })
 }
@@ -81,28 +81,28 @@ export const addMessageToChat = async (chatId: string, message: {role: string, c
             'messages': [...newMessages, JSON.stringify(message)]
         }
     ).then(function(response) { 
-        console.log(response)
+        // console.log(response)
         return response
     }, 
     function(error) { 
-        console.log(error);
+        // console.log(error);
         return error
     })
 }
 
 
 export const listChats = (userId: string) => { 
-    console.log("Listing chats for userId:", userId);
+    // console.log("Listing chats for userId:", userId);
     return database.listDocuments(
         process.env.NEXT_PUBLIC_APPWRITE_DATABASE || "",
         process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || "", 
         [Query.equal('userId', userId)]
     ).then(function(response) { 
-        console.log("List Chats Response:", response);
+        // console.log("List Chats Response:", response);
         return response.documents
     }, 
     function(error) { 
-        console.log(error);
+        // console.log(error);
         return [];
     })
 }
@@ -115,7 +115,7 @@ export const createUser = async (email: string, password: string, firstName: str
         password,
         firstName + " " + lastName
     );
-    console.log(result)
+    // console.log(result)
 }
 
 
@@ -123,7 +123,7 @@ export const loginUser = async (email: string, password: string) => {
     const account = new Account(client);
     try {
         const response = await account.createEmailPasswordSession(email, password);
-        console.log("Login successful:", response);
+        // console.log("Login successful:", response);
         
         // Get user data to include in cookie setting
         const user = await account.get();
@@ -141,16 +141,16 @@ export const loginUser = async (email: string, password: string) => {
         });
         
         if (!cookieResponse.ok) {
-            console.error('Failed to set authentication cookies');
+            // console.error('Failed to set authentication cookies');
         } else {
-            console.log('✅ Authentication cookies set successfully');
+            // console.log('✅ Authentication cookies set successfully');
             
             // Log debug headers
             const debugHeaders = {
                 'x-cookie-set-env': cookieResponse.headers.get('x-cookie-set-env'),
                 'x-cookie-set-secure': cookieResponse.headers.get('x-cookie-set-secure'),
             };
-            console.log('🐛 Cookie debug headers:', debugHeaders);
+            // console.log('🐛 Cookie debug headers:', debugHeaders);
         }
         
         return response;
@@ -175,7 +175,7 @@ export const logoutUser = async () => {
     const account = new Account(client);
     try {
         await account.deleteSession('current');
-        console.log("Logout successful");
+        // console.log("Logout successful");
         
         // Clear cookies via secure API route
         const cookieResponse = await fetch('/api/auth/logout', {
@@ -185,13 +185,13 @@ export const logoutUser = async () => {
         if (!cookieResponse.ok) {
             console.error('Failed to clear authentication cookies');
         } else {
-            console.log('✅ Authentication cookies cleared successfully');
+            // console.log('✅ Authentication cookies cleared successfully');
             
             // Log debug headers
             const debugHeaders = {
                 'x-cookie-clear-env': cookieResponse.headers.get('x-cookie-clear-env'),
             };
-            console.log('🐛 Cookie clear debug headers:', debugHeaders);
+            // console.log('🐛 Cookie clear debug headers:', debugHeaders);
         }
         
     } catch (error) {
@@ -201,7 +201,7 @@ export const logoutUser = async () => {
 
 export const cookieClick = async () => { 
     // Client-side cookie access
-    console.log("Document cookies:", document.cookie);
+    // console.log("Document cookies:", document.cookie);
     
     // Parse cookies into an object for easier reading
     const cookies = document.cookie.split(';').reduce((acc, cookie) => {
@@ -210,7 +210,7 @@ export const cookieClick = async () => {
         return acc;
     }, {} as Record<string, string>);
     
-    console.log("Parsed cookies:", cookies);
+    // console.log("Parsed cookies:", cookies);
 }
 
 export const updateChatName = async (chatId: string, newName: string) => {
@@ -222,26 +222,26 @@ export const updateChatName = async (chatId: string, newName: string) => {
             'chatId': newName
         }
     ).then(function(response) { 
-        console.log("Chat name updated successfully:", response)
+        // console.log("Chat name updated successfully:", response)
         return response
     }, 
     function(error) { 
-        console.log("Error updating chat name:", error);
+        // console.log("Error updating chat name:", error);
         throw error
     })
 }
 
 export const deleteDocument = async (documentId: string) => { 
-    console.log(documentId)
+    // console.log(documentId)
     const promise = database.deleteDocument(
         process.env.NEXT_PUBLIC_APPWRITE_DATABASE || '', 
         process.env.NEXT_PUBLIC_APPWRITE_CHAT_COLLECTION || '', 
         documentId     
         )
     promise.then(function() { 
-        console.log("sucesss")
+        // console.log("sucesss")
     }, function() { 
-        console.log("error")
+        // console.log("error")
     })
     
 }
@@ -253,7 +253,7 @@ export const passwordReset = async (email: string) => {
             ? 'https://marveloracle.vercel.app/reset-password'  // Replace with your actual domain
             : 'http://localhost:3000/reset-password';
         await account.createRecovery(email, resetUrl);
-        console.log("Password recovery email sent");
+        // console.log("Password recovery email sent");
     } catch (error) {
         console.error("Error sending password recovery email:", error);
         throw error;
@@ -264,7 +264,7 @@ export const updatePassword = async (userId: string, secret: string, newPassword
     const account = new Account(client);
     try {
         await account.updateRecovery(userId, secret, newPassword);
-        console.log("Password updated successfully");
+        // console.log("Password updated successfully");
     } catch (error) {
         console.error("Error updating password:", error);
         throw error;

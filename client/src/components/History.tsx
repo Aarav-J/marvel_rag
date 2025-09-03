@@ -73,9 +73,9 @@ const History = () => {
   }
   useEffect(() => { 
     if (userId) {
-      console.log("Fetching chats for userId:", userId);
+      // console.log("Fetching chats for userId:", userId);
       listChats(userId).then((chats) => {
-        console.log("Retrieved chats:", chats);
+        // console.log("Retrieved chats:", chats);
         const newChats = chats.map((chat) => { 
           return {id: chat.$id, name: chat.chatId}
         })
@@ -97,13 +97,13 @@ const History = () => {
     };
   }, [showMenu]);
   const onClick = async (chatId: string, chatName: string) => { 
-    console.log(chatName)
+    // console.log(chatName)
     setSelectedChatId(chatId)
     const document = await getDocument(chatId) as chat; 
     const messages = document['messages'] || []
-    console.log("Messages:", messages)
+    // console.log("Messages:", messages)
     setMessages(messages.map(message => JSON.parse(message as unknown as string)))
-    console.log(messages.map(message => JSON.parse(message as unknown as string)))
+    // console.log(messages.map(message => JSON.parse(message as unknown as string)))
   }
   return (
     <>

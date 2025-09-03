@@ -24,18 +24,18 @@ export default function Login() {
     setIsLoading(true);
     try { 
       const loginResponse = await loginUser(email, password);
-      console.log("Login response:", loginResponse);
+      // console.log("Login response:", loginResponse);
       
       // Get the user data and set userId in store
       const user = await getUser();
       if (user) {
-        console.log("Setting userId:", user.$id);
+        // console.log("Setting userId:", user.$id);
         setUserId(user.$id); // Set userId in store
         setUserName(user.name); // Set userName in store
         // Now fetch chats with the userId
         const chats = await listChats(user.$id);
         setMessages([]); // Clear messages on new login
-        console.log("Fetched chats:", chats);
+        // console.log("Fetched chats:", chats);
         const newChats = chats.map((chat) => { 
           return {id: chat.$id, name: chat.chatId}
         })

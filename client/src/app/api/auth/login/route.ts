@@ -17,11 +17,11 @@ export async function POST(request: NextRequest) {
       path: '/',
     };
     
-    console.log('🍪 Setting cookies with options:', {
-      isProduction,
-      secure: cookieOptions.secure,
-      sameSite: cookieOptions.sameSite
-    });
+    // console.log('🍪 Setting cookies with options:', {
+    //   isProduction,
+    //   secure: cookieOptions.secure,
+    //   sameSite: cookieOptions.sameSite
+    // });
     
     // Set authentication cookies
     response.cookies.set('auth_token', sessionId, cookieOptions);
